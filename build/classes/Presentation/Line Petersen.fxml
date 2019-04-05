@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.JesperThomsenController">
+   <children>
+      <Text layoutX="144.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Line Petersen">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text layoutX="97.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alder:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="97.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Afdeling:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="97.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPR nr.:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Pane layoutX="421.0" layoutY="108.0" prefHeight="124.0" prefWidth="126.0" />
+      <Button layoutX="100.0" layoutY="318.0" mnemonicParsing="false" text="Tilbage" />
+      <Button layoutX="92.0" layoutY="245.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="71.0" text="Skema" />
+   </children>
+</AnchorPane>
