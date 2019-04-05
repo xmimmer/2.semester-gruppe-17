@@ -5,6 +5,7 @@
  */
 package Presentation;
 
+import Data.UsernameAndPassword;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -42,12 +43,20 @@ public class LoginController implements Initializable {
 
     }
 
-    public static String adminUsername = "admin";
-    public static String adminPassword = "123";
-
+    private String username = usernameField.getText();
+    private String password = passwordField.getText();
+    
+        public String getUsername(){
+            return username;
+        }
+        
+        public String getPassword(){
+            return password;
+        }
     @FXML
     private void loginButtonHandler(ActionEvent event) throws IOException {
-        if (!passwordField.getText().equals(adminPassword) && !usernameField.getText().equals(adminUsername)) {
+        UsernameAndPassword UAP = new UsernameAndPassword();
+        if (UAP.found == false) {
             checkLabel.setText("Forkert brugernavn/kodeord.");
         } else {
 
@@ -60,7 +69,8 @@ public class LoginController implements Initializable {
             window.show();
 
         }
-
+    
+        
     }
 
 }
