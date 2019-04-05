@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Presentation;
+package Logic;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,8 +29,7 @@ import javafx.stage.Stage;
 
 /*
  * @author Mimmer
-*/
-
+ */
 public class AdminController implements Initializable {
 
     @FXML
@@ -44,7 +43,6 @@ public class AdminController implements Initializable {
     @FXML
     private Button logoutButton;
 
-  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -82,7 +80,7 @@ public class AdminController implements Initializable {
     @FXML
     private void backButtonHandler(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Presentation/LoginFXML.fxml"));
         Scene scene = new Scene(root);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -92,13 +90,24 @@ public class AdminController implements Initializable {
     }
 
     @FXML
-    private void chooseButtonHandler(ActionEvent event) {
+    private void chooseButtonHandler(ActionEvent event) throws IOException {
+
+        String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
+
+        Parent root = FXMLLoader.load(getClass().getResource("/Presentation/" + valgtBorger + ".FXML"));
+        Scene scene = new Scene(root);
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
+
     }
 
     @FXML
     private void logoutButtonHandler(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Presentation/LoginFXML.fxml"));
         Scene scene = new Scene(root);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

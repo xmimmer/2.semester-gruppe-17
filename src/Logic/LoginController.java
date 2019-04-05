@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Presentation;
+package Logic;
 
 import java.io.IOException;
 import java.net.URL;
@@ -51,7 +51,7 @@ public class LoginController implements Initializable {
             checkLabel.setText("Forkert brugernavn/kodeord.");
         } else {
 
-            Parent root = FXMLLoader.load(getClass().getResource("AdminFXML.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Presentation/AdminFXML.fxml"));
             Scene scene = new Scene(root);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
