@@ -1,4 +1,3 @@
-
 package Logic;
 
 import java.io.IOException;
@@ -16,7 +15,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 
 public class LoginController implements Initializable {
 
@@ -39,9 +37,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void loginButtonHandler(ActionEvent event) throws IOException {
-        if (!passwordField.getText().equals(adminPassword) && !usernameField.getText().equals(adminUsername)) {
-            checkLabel.setText("Forkert brugernavn/kodeord.");
-        } else {
+        if (passwordField.getText().equals(adminPassword) && usernameField.getText().equals(adminUsername)) {
 
             Parent root = FXMLLoader.load(getClass().getResource("/Presentation/AdminFXML.fxml"));
             Scene scene = new Scene(root);
@@ -50,6 +46,10 @@ public class LoginController implements Initializable {
 
             window.setScene(scene);
             window.show();
+
+        } else {
+
+            checkLabel.setText("Forkert kodeord/brugernavn.");
 
         }
 

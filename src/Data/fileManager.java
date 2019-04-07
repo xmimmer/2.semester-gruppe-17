@@ -20,7 +20,7 @@ public class fileManager {
 
         File file = new File(fileName);
         PrintWriter pw = null;
-        String[] borgere = {"Jesper Thomsen:", "Hans Hansen:", "Line Petersen:", "Jacob Svendsen:"};
+        String[] borgere = {"Hans Hansen:", "Line Petersen:", "Allan Nymark:"};
 
         try {
             FileWriter fw = new FileWriter(fileName, false);

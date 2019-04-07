@@ -11,6 +11,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -19,19 +20,29 @@ import javafx.stage.Stage;
 public class HansHansenController implements Initializable {
 
     @FXML
-    private Button backButton;
+    private Label nameLabel;
     @FXML
     private Button schemaButton;
     @FXML
+    private Button backButton;
+    @FXML
     private ImageView photo;
     @FXML
-    private TextArea textField;
+    private Label ageLabel;
     @FXML
-    private TextField departmentTextField;
+    private Label depLabel;
+    @FXML
+    private Label cprLabel;
+    @FXML
+    private Label diaryLabel;
+    @FXML
+    private TextArea diaryTextField;
+    @FXML
+    private TextField ageTextField;
+    @FXML
+    private TextField depTextField;
     @FXML
     private TextField cprTextField;
-    @FXML
-    private TextField ageTextField1;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -40,6 +51,19 @@ public class HansHansenController implements Initializable {
 
     @FXML
     private void schemaButtonHandler(ActionEvent event) {
+
+        nameLabel.setVisible(false);
+        schemaButton.setVisible(false);
+        ageLabel.setVisible(false);
+        depLabel.setVisible(false);
+        cprLabel.setVisible(false);
+        diaryLabel.setVisible(false);
+        diaryTextField.setVisible(false);
+        ageTextField.setVisible(false);
+        depTextField.setVisible(false);
+        cprTextField.setVisible(false);
+
+        //Aktiver skemaer mm....
     }
 
     @FXML
