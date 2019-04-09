@@ -7,45 +7,67 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.HansHansenController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.HansHansenController">
    <children>
-      <Label fx:id="nameLabel" layoutX="142.0" layoutY="62.0" text="Hans Hansen" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="15.0">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="photo" fitHeight="125.0" fitWidth="132.0" layoutX="424.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../man.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="ageLabel" layoutX="32.0" layoutY="100.0" text="Alder" AnchorPane.leftAnchor="30.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="depLabel" layoutX="31.0" layoutY="131.0" text="Afdeling" AnchorPane.leftAnchor="30.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="cprLabel" layoutX="34.0" layoutY="164.0" text="CPR-nr." AnchorPane.leftAnchor="30.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="diaryLabel" layoutX="447.0" layoutY="152.0" text="Dagbog">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextArea fx:id="diaryTextField" editable="false" layoutX="379.0" layoutY="181.0" prefHeight="200.0" prefWidth="200.0" />
-      <TextField fx:id="ageTextField" editable="false" layoutX="108.0" layoutY="101.0" />
-      <TextField fx:id="depTextField" editable="false" layoutX="108.0" layoutY="132.0" />
-      <TextField fx:id="cprTextField" editable="false" layoutX="108.0" layoutY="165.0" />
-      <Button fx:id="schemaButton" layoutX="24.0" layoutY="254.0" mnemonicParsing="false" onAction="#schemaButtonHandler" text="Aktivitetsskemaer" />
-      <Button fx:id="backButton" layoutX="53.0" layoutY="272.0" mnemonicParsing="false" onAction="#backButtonHandler" text="Tilbage" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="30.0" />
+      <Pane fx:id="pane1" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="nameLabel" layoutX="30.0" layoutY="20.0" text="Hans Hansen">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="photo" fitHeight="125.0" fitWidth="132.0" layoutX="413.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../man.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="ageLabel" layoutX="30.0" layoutY="140.0" text="Alder">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="depLabel" layoutX="30.0" layoutY="175.0" text="Afdeling">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="cprLabel" layoutX="30.0" layoutY="207.0" text="CPR-nr.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="diaryLabel" layoutX="447.0" layoutY="153.0" text="Dagbog">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="diaryTextField" editable="false" layoutX="389.0" layoutY="181.0" prefHeight="200.0" prefWidth="200.0" />
+            <TextField fx:id="ageTextField" editable="false" layoutX="102.0" layoutY="141.0" />
+            <TextField fx:id="depTextField" editable="false" layoutX="102.0" layoutY="176.0" />
+            <TextField fx:id="cprTextField" editable="false" layoutX="102.0" layoutY="208.0" />
+            <Button fx:id="schemaButton" layoutX="24.0" layoutY="254.0" mnemonicParsing="false" onAction="#schemaButtonHandler" text="Aktivitetsskemaer" />
+            <Button fx:id="backButton" layoutX="15.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButtonHandler" prefHeight="25.0" prefWidth="55.0" text="Tilbage" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane2" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <VBox layoutX="494.0" prefHeight="400.0" prefWidth="100.0">
+               <children>
+                  <ImageView fx:id="iv1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="iv2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="iv3" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="iv4" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <Button fx:id="backButton1" layoutX="15.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButton1Handler" text="Tilbage" />
+            <Button fx:id="createSchemaButton" layoutX="100.0" layoutY="350.0" mnemonicParsing="false" onAction="#createSchemaButtonHandler" text="Opret skema" />
+            <Button fx:id="deleteSchemaButton" layoutX="185.0" layoutY="350.0" mnemonicParsing="false" onAction="#deleteSchemaButtonHandler" text="Slet skema" />
+            <Button fx:id="showSchemaButton" layoutX="260.0" layoutY="350.0" mnemonicParsing="false" onAction="#showSchemaButtonHandler" text="Vis skemaer" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
