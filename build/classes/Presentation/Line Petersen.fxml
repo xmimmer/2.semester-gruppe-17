@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -9,43 +14,63 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.LinePetersenController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.LinePetersenController">
    <children>
-      <Label fx:id="ageLabel" layoutX="30.0" layoutY="140.0" text="Alder">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="depLabel" layoutX="30.0" layoutY="175.0" text="Afdeling">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="cprLabel" layoutX="30.0" layoutY="207.0" text="CPR-nr.">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label fx:id="nameLabel" layoutX="30.0" layoutY="20.0" text="Line Petersen">
-         <font>
-            <Font size="48.0" />
-         </font>
-      </Label>
-      <Label fx:id="diaryLabel" layoutX="447.0" layoutY="153.0" text="Dagbog">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="ageTextField" editable="false" layoutX="102.0" layoutY="141.0" />
-      <TextField fx:id="depTextField" editable="false" layoutX="102.0" layoutY="176.0" />
-      <TextField fx:id="cprTextField" editable="false" layoutX="102.0" layoutY="208.0" />
-      <ImageView fx:id="photo" fitHeight="125.0" fitWidth="132.0" layoutX="413.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../woman.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="schemaButton" layoutX="24.0" layoutY="254.0" mnemonicParsing="false" onAction="#schemaButtonHandler" text="Aktivitetsskemaer" />
-      <Button fx:id="backButton" layoutX="30.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButtonHandler" text="Tilbage" />
-      <TextArea fx:id="diaryTextField" editable="false" layoutX="379.0" layoutY="181.0" prefHeight="200.0" prefWidth="200.0" />
+      <Pane fx:id="pane1" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="ageLabel" layoutX="38.0" layoutY="137.0" text="Alder">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="depLabel" layoutX="33.0" layoutY="174.0" text="Afdeling">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="cprLabel" layoutX="37.0" layoutY="212.0" text="CPR-nr.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLabel" layoutX="45.0" layoutY="27.0" text="Line Petersen">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Label>
+            <Label fx:id="diaryLabel" layoutX="435.0" layoutY="150.0" text="Dagbog">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ageTextField" editable="false" layoutX="112.0" layoutY="138.0" />
+            <TextField fx:id="depTextField" editable="false" layoutX="112.0" layoutY="175.0" />
+            <ImageView fx:id="photo" fitHeight="125.0" fitWidth="132.0" layoutX="424.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../woman.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="schemaButton" layoutX="32.0" layoutY="251.0" mnemonicParsing="false" onAction="#schemaButtonHandler" text="Aktivitetsskemaer" />
+            <Button fx:id="backButton" layoutX="32.0" layoutY="327.0" mnemonicParsing="false" onAction="#backButtonHandler" text="Tilbage" />
+            <TextField fx:id="cprTextField" editable="false" layoutX="112.0" layoutY="213.0" />
+            <TextArea layoutX="386.0" layoutY="186.0" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane2">
+         <children>
+            <VBox layoutX="475.0" prefHeight="599.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="iv1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="iv2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="iv3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="iv4" fitHeight="170.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <Button fx:id="createSchemaButton" layoutX="103.0" layoutY="328.0" mnemonicParsing="false" onAction="#createSchemaButtonHandler" text="Opret skema" />
+            <Button fx:id="backButton1" layoutX="33.0" layoutY="328.0" mnemonicParsing="false" onAction="#backButton1Handler" text="Tilbage" />
+            <Button fx:id="deleteSchemaButton" layoutX="287.0" layoutY="328.0" mnemonicParsing="false" onAction="#deleteSchemaButtonHandler" text="Slet Skema" />
+            <Button fx:id="showSchemaButton" layoutX="198.0" layoutY="328.0" mnemonicParsing="false" onAction="#showSchemaButtonHandler" text="Vis skemaer" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
