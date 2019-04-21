@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -11,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="anchorPane1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.HansHansenController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.HansHansenController">
    <children>
       <Pane fx:id="pane1" prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -64,9 +69,30 @@
                </children>
             </VBox>
             <Button fx:id="backButton1" layoutX="15.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButton1Handler" text="Tilbage" />
-            <Button fx:id="createSchemaButton" layoutX="100.0" layoutY="350.0" mnemonicParsing="false" onAction="#createSchemaButtonHandler" text="Opret skema" />
+            <Button fx:id="createSchemaButton" layoutX="72.0" layoutY="350.0" mnemonicParsing="false" onAction="#createSchemaButtonHandler" text="Opret gemt Skema" />
             <Button fx:id="deleteSchemaButton" layoutX="185.0" layoutY="350.0" mnemonicParsing="false" onAction="#deleteSchemaButtonHandler" text="Slet skema" />
             <Button fx:id="showSchemaButton" layoutX="260.0" layoutY="350.0" mnemonicParsing="false" onAction="#showSchemaButtonHandler" text="Vis skemaer" />
+            <Button fx:id="stdskemabt" layoutX="70.0" layoutY="300.0" mnemonicParsing="false" onAction="#Opretstdskemahandler" text="Lav std skema" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane3" prefHeight="400.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="skema" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="15.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButton2Handler" prefHeight="25.0" prefWidth="55.0" text="Tilbage" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane4" onDragDropped="#handledrop" onDragOver="#handledragover" prefHeight="400.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="iv5" fitHeight="250.0" fitWidth="250.0" layoutX="200.0" layoutY="135.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="dragimage" layoutX="250.0" layoutY="100.0" prefHeight="25.0" prefWidth="286.0" text="Drag image" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane5" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <Label fx:id="lab3" layoutX="100.0" layoutY="90.0" prefHeight="27.0" prefWidth="216.0" text="lab3" />
+            <ImageView fx:id="iv6" fitHeight="200.0" fitWidth="200.0" layoutX="70.0" layoutY="130.0" onDragDetected="#handledragdetected" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iv7" fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="150.0" onDragDone="#handledragdone" onDragDropped="#handleimagedropped" onDragOver="#handledragimageover" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lab4" layoutX="320.0" layoutY="120.0" prefHeight="27.0" prefWidth="139.0" text="lab4" />
          </children>
       </Pane>
    </children>
