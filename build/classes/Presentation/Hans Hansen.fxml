@@ -91,7 +91,7 @@
          <children>
             <Label fx:id="lab3" layoutX="100.0" layoutY="90.0" prefHeight="27.0" prefWidth="216.0" text="lab3" />
             <ImageView fx:id="iv6" fitHeight="200.0" fitWidth="200.0" layoutX="70.0" layoutY="130.0" onDragDetected="#handledragdetected" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="iv7" fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="150.0" onDragDone="#handledragdone" onDragDropped="#handleimagedropped" onDragOver="#handledragimageover" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iv7" fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="150.0" onDragDropped="#handleimagedropped" onDragOver="#handledragimageover" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="lab4" layoutX="320.0" layoutY="120.0" prefHeight="27.0" prefWidth="139.0" text="lab4" />
          </children>
       </Pane>
