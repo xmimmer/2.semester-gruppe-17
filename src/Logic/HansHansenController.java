@@ -223,7 +223,7 @@ public class HansHansenController implements Initializable {
         pane5.setVisible(true);
         iv6.setImage(image);
         lab3.setText("hent skema fra ventsre og tilfoj til hojre");
-        
+        lab4.setText("SUCCES");
         
     }
     @FXML
