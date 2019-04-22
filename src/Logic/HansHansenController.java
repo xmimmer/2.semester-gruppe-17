@@ -5,6 +5,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -114,6 +119,30 @@ public class HansHansenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         image = new Image(new File("man.png").toURI().toString());
         photo.setImage(image);
+        
+         try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "rynaqui16");
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM public.borgere WHERE navn = 'Hans Hansen'");
+            while (resultSet.next()) {
+                ageTextField.setText(resultSet.getString("alder")); 
+                depTextField.setText(resultSet.getString("afdeling")); 
+                cprTextField.setText(resultSet.getString("CPR-nr")); 
+                
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println("Couldn't connect.");
+        }
+
     }
 
     @FXML

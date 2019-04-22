@@ -3,6 +3,11 @@ package Logic;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -79,6 +84,29 @@ public class LinePetersenController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
             image = new Image(new File("woman.png").toURI().toString());
         photo.setImage(image);
+        
+                try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        try {
+            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "rynaqui16");
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM public.borgere WHERE navn ='Line Petersen'");
+            while (resultSet.next()) {
+                ageTextField.setText(resultSet.getString("alder")); 
+                depTextField.setText(resultSet.getString("afdeling")); 
+                cprTextField.setText(resultSet.getString("CPR-nr")); 
+                
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println("Couldn't connect.");
+        }
     }
 
     
