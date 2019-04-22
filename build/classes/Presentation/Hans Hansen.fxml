@@ -81,18 +81,27 @@
             <Button layoutX="15.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButton2Handler" prefHeight="25.0" prefWidth="55.0" text="Tilbage" />
          </children>
       </Pane>
-      <Pane fx:id="pane4" onDragDropped="#handledrop" onDragOver="#handledragover" prefHeight="400.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="pane4" prefHeight="400.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="iv5" fitHeight="250.0" fitWidth="250.0" layoutX="200.0" layoutY="135.0" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="dragimage" layoutX="250.0" layoutY="100.0" prefHeight="25.0" prefWidth="286.0" text="Drag image" />
+            <Button fx:id="hentfilerbtn" layoutX="200.0" layoutY="350.0" mnemonicParsing="false" onAction="#Hentfileraction" prefHeight="27.0" prefWidth="73.0" text="Hent Filer" />
+            <ImageView fx:id="iv9" fitHeight="140.0" fitWidth="158.0" layoutX="185.0" layoutY="10.0" onDragDropped="#handledrop1" onDragOver="#handledragover1" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iv10" fitHeight="125.0" fitWidth="149.0" layoutX="10.0" layoutY="10.0" onDragDropped="#handledrop2" onDragOver="#handledragover2" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iv8" fitHeight="125.0" fitWidth="158.0" layoutX="202.0" layoutY="175.0" onDragDropped="#handledrop3" onDragOver="#handledragover3" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iv5" fitHeight="150.0" fitWidth="184.0" layoutX="10.0" layoutY="150.0" onDragDropped="#handledrop" onDragOver="#handledragover" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="dragimage" layoutX="446.0" layoutY="100.0" prefHeight="70.0" prefWidth="90.0" text="Drag image" />
+            <Button fx:id="backbtn3" layoutX="15.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButton3Handler" prefHeight="27.0" prefWidth="110.0" text="Tilbage" />
          </children>
       </Pane>
       <Pane fx:id="pane5" prefHeight="400.0" prefWidth="600.0" visible="false">
          <children>
-            <Label fx:id="lab3" layoutX="100.0" layoutY="90.0" prefHeight="27.0" prefWidth="216.0" text="lab3" />
-            <ImageView fx:id="iv6" fitHeight="200.0" fitWidth="200.0" layoutX="70.0" layoutY="130.0" onDragDetected="#handledragdetected" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="iv7" fitHeight="150.0" fitWidth="200.0" layoutX="350.0" layoutY="150.0" onDragDropped="#handleimagedropped" onDragOver="#handledragimageover" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="lab4" layoutX="320.0" layoutY="120.0" prefHeight="27.0" prefWidth="139.0" text="lab4" />
+            <Label fx:id="lab3" layoutX="226.0" layoutY="90.0" prefHeight="25.0" prefWidth="90.0" text="lab3" />
+            <ImageView fx:id="iv11" fitHeight="100.0" fitWidth="149.0" layoutX="10.0" layoutY="150.0" onDragDetected="#handledragdetected1" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iv12" fitHeight="100.0" fitWidth="149.0" layoutX="10.0" layoutY="275.0" onDragDetected="#handledragdetected2" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iv6" fitHeight="125.0" fitWidth="149.0" layoutX="10.0" layoutY="10.0" onDragDetected="#handledragdetected" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iv7" fitHeight="125.0" fitWidth="149.0" layoutX="390.0" layoutY="10.0" onDragDropped="#handleimagedropped" onDragOver="#handledragimageover" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="lab4" layoutX="188.0" layoutY="120.0" prefHeight="10.0" prefWidth="140.0" text="lab4" />
+            <ImageView fx:id="iv13" fitHeight="93.0" fitWidth="149.0" layoutX="390.0" layoutY="157.0" onDragDropped="#handleimagedropped1" onDragOver="#handleimagedragover1" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="iv14" fitHeight="100.0" fitWidth="149.0" layoutX="390.0" layoutY="275.0" onDragDropped="#handleimagedropped2" onDragOver="#handleimagedragover2" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </children>
