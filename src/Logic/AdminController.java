@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import javafx.collections.FXCollections;
@@ -44,25 +48,30 @@ public class AdminController implements Initializable {
         ObservableList<String> list = FXCollections.observableArrayList();
 
         try {
-            sc = new Scanner(file);
-            String line;
-
-            while (sc.hasNext()) {
-
-                line = sc.nextLine();
-                String split[] = line.split(":");
-
-                for (int i = 0; i < split.length; i++) {
-                    list.add(split[i]);
-                }
-
-                borgerListView.setItems(list);
-            }
-
-        } catch (FileNotFoundException ex) {
-            System.out.println("No file found.");
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
         }
 
+        String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/beucjfoi";
+        String username = "beucjfoi";
+        String password = "EXQJyo9fmXNKkqC-CVoGoI2kE9XinAP8";
+
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM borgere");
+            while (resultSet.next()) {
+                list.add(resultSet.getString("navn"));
+
+            }
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        list.add("Allan Nymark");
+        borgerListView.setItems(list);
     }
 
     @FXML
@@ -89,7 +98,7 @@ public class AdminController implements Initializable {
 
             window.setScene(scene);
             window.show();
-            
+
         } catch (Exception e) {
             System.out.println("Ingen data tilgængelig for denne person.");
         }

@@ -38,7 +38,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
-
 public class HansHansenController implements Initializable {
 
     @FXML
@@ -73,10 +72,10 @@ public class HansHansenController implements Initializable {
     @FXML
     private Pane pane1;
     @FXML
-    private Pane pane2;    
+    private Pane pane2;
     @FXML
     private Pane pane3;
-    
+
     @FXML
     private ImageView iv1;
     @FXML
@@ -95,8 +94,8 @@ public class HansHansenController implements Initializable {
     private Button showSchemaButton;
     @FXML
     private ImageView skema;
-  
-        int curseur = 0;
+
+    int curseur = 0;
     private Image image;
     @FXML
     private Pane pane4;
@@ -108,7 +107,7 @@ public class HansHansenController implements Initializable {
     private Button stdskemabt;
     @FXML
     private Pane pane5;
-    @FXML 
+    @FXML
     private ImageView iv7;
     private Label lab2;
     @FXML
@@ -133,34 +132,36 @@ public class HansHansenController implements Initializable {
     private ImageView iv13;
     @FXML
     private ImageView iv14;
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         image = new Image(new File("man.png").toURI().toString());
         photo.setImage(image);
-        
-         try {
+
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
             System.out.println("Fail to load the jdbc driver.");
         }
 
+        String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/beucjfoi";
+        String username = "beucjfoi";
+        String password = "EXQJyo9fmXNKkqC-CVoGoI2kE9XinAP8";
+
         try {
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "rynaqui16");
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM public.borgere WHERE navn = 'Hans Hansen'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM borgere WHERE navn = 'Hans Hansen'");
             while (resultSet.next()) {
-                ageTextField.setText(resultSet.getString("alder")); 
-                depTextField.setText(resultSet.getString("afdeling")); 
-                cprTextField.setText(resultSet.getString("CPR-nr")); 
-                
-                
+                ageTextField.setText(resultSet.getString("alder"));
+                depTextField.setText(resultSet.getString("afdeling"));
+                cprTextField.setText(resultSet.getString("CPR"));
+
             }
-        } catch (SQLException ex) {
-            System.out.println("Couldn't connect.");
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
         }
 
     }
@@ -207,12 +208,8 @@ public class HansHansenController implements Initializable {
         pane2.setVisible(false);
         pane4.setVisible(true);
         dragimage.setText("Træk billed fra filer ind mod midten");
-        
-        
+
     }
-    
-  
-   
 
     @FXML
     private void deleteSchemaButtonHandler(ActionEvent event) {
@@ -222,12 +219,13 @@ public class HansHansenController implements Initializable {
 
     @FXML
     private void showSchemaButtonHandler(ActionEvent event) {
-   
+
         pane2.setVisible(false);
         pane3.setVisible(true);
         skema.setImage(image);
-        
+
     }
+
     @FXML
     private void backButton2Handler(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Presentation/Hans Hansen.fxml"));
@@ -242,18 +240,19 @@ public class HansHansenController implements Initializable {
 
     @FXML
     private void handledragover(DragEvent event) {
-          if(event.getDragboard().hasFiles()){
+        if (event.getDragboard().hasFiles()) {
             event.acceptTransferModes(TransferMode.MOVE);
-            
+
+        }
     }
-    }
+
     @FXML
     private void handledrop(DragEvent event) throws FileNotFoundException {
         List<File> files = event.getDragboard().getFiles();
         image = new Image(new FileInputStream(files.get(0)));
         iv5.setImage(image);
         lab2.setText("Trak std skema til højre felt som onskes.");
-    } 
+    }
 
     @FXML
     private void handledragdetected(MouseEvent event) {
@@ -262,8 +261,7 @@ public class HansHansenController implements Initializable {
         cb.putImage(iv6.getImage());
         db.setContent(cb);
         event.consume();
-        
-        
+
     }
 
     @FXML
@@ -275,58 +273,59 @@ public class HansHansenController implements Initializable {
         iv12.setImage(image);
         lab3.setText("hent skema fra ventsre og tilfoj til hojre");
         lab4.setText("SUCCES");
-        
+
     }
+
     @FXML
-    private void handledragimageover(DragEvent event){
-    
-    if (event.getDragboard().hasImage()){
-    event.acceptTransferModes(TransferMode.ANY);
-    
-    
+    private void handledragimageover(DragEvent event) {
+
+        if (event.getDragboard().hasImage()) {
+            event.acceptTransferModes(TransferMode.ANY);
+
+        }
     }
-    }
+
     @FXML
-    private void handleimagedropped(DragEvent event){
+    private void handleimagedropped(DragEvent event) {
 
         Image img = event.getDragboard().getImage();
         iv7.setImage(img);
-       
-    
+
     }
 
     @FXML
     private void Hentfileraction(ActionEvent event) {
-        FileChooser fc  = new FileChooser();
+        FileChooser fc = new FileChooser();
         fc.setInitialDirectory(new File("C:\\Users\\wehal\\OneDrive\\Documents\\2.semesterprojekt"));
-        fc.getExtensionFilters().addAll(new ExtensionFilter("PNG Files","*.png"));
+        fc.getExtensionFilters().addAll(new ExtensionFilter("PNG Files", "*.png"));
         File selectedfile = fc.showOpenDialog(null);
     }
 
     @FXML
     private void handledragover1(DragEvent event) {
-             if(event.getDragboard().hasFiles()){
+        if (event.getDragboard().hasFiles()) {
             event.acceptTransferModes(TransferMode.MOVE);
+        }
     }
-    }
+
     @FXML
     private void handledrop1(DragEvent event) throws FileNotFoundException {
-         List<File> files = event.getDragboard().getFiles();
+        List<File> files = event.getDragboard().getFiles();
         image = new Image(new FileInputStream(files.get(0)));
         iv9.setImage(image);
-       
+
     }
 
     @FXML
     private void handledragover2(DragEvent event) {
-         if(event.getDragboard().hasFiles()){
+        if (event.getDragboard().hasFiles()) {
             event.acceptTransferModes(TransferMode.MOVE);
-    }
+        }
     }
 
     @FXML
     private void handledrop2(DragEvent event) throws FileNotFoundException {
-         List<File> files = event.getDragboard().getFiles();
+        List<File> files = event.getDragboard().getFiles();
         image = new Image(new FileInputStream(files.get(0)));
         iv10.setImage(image);
 
@@ -334,14 +333,14 @@ public class HansHansenController implements Initializable {
 
     @FXML
     private void handledragover3(DragEvent event) {
-         if(event.getDragboard().hasFiles()){
+        if (event.getDragboard().hasFiles()) {
             event.acceptTransferModes(TransferMode.MOVE);
-    }
+        }
     }
 
     @FXML
     private void handledrop3(DragEvent event) throws FileNotFoundException {
-         List<File> files = event.getDragboard().getFiles();
+        List<File> files = event.getDragboard().getFiles();
         image = new Image(new FileInputStream(files.get(0)));
         iv8.setImage(image);
     }
@@ -359,72 +358,56 @@ public class HansHansenController implements Initializable {
 
     @FXML
     private void handledragdetected1(MouseEvent event) {
-          Dragboard db = iv11.startDragAndDrop(TransferMode.ANY);
+        Dragboard db = iv11.startDragAndDrop(TransferMode.ANY);
         ClipboardContent cb = new ClipboardContent();
         cb.putImage(iv11.getImage());
         db.setContent(cb);
         event.consume();
-        
-        
+
     }
 
     @FXML
     private void handledragdetected2(MouseEvent event) {
-          Dragboard db = iv12.startDragAndDrop(TransferMode.ANY);
+        Dragboard db = iv12.startDragAndDrop(TransferMode.ANY);
         ClipboardContent cb = new ClipboardContent();
         cb.putImage(iv12.getImage());
         db.setContent(cb);
         event.consume();
-        
-        
+
     }
 
     @FXML
     private void handleimagedragover1(DragEvent event) {
-              
-    if (event.getDragboard().hasImage()){
-    event.acceptTransferModes(TransferMode.ANY);
-    
-    }
+
+        if (event.getDragboard().hasImage()) {
+            event.acceptTransferModes(TransferMode.ANY);
+
+        }
     }
 
     @FXML
     private void handleimagedropped1(DragEvent event) {
-        
+
         Image img = event.getDragboard().getImage();
         iv13.setImage(img);
-       
-   
+
     }
 
     @FXML
     private void handleimagedragover2(DragEvent event) {
-         
-    if (event.getDragboard().hasImage()){
-    event.acceptTransferModes(TransferMode.ANY);
-    
+
+        if (event.getDragboard().hasImage()) {
+            event.acceptTransferModes(TransferMode.ANY);
+
+        }
     }
-    }
-    
 
     @FXML
     private void handleimagedropped2(DragEvent event) {
-        
+
         Image img = event.getDragboard().getImage();
         iv14.setImage(img);
-       
-    }
-    
-   
-    
-    
+
     }
 
-    
-   
-    
-
-
-
-
-   
+}

@@ -53,13 +53,13 @@ public class LinePetersenController implements Initializable {
     private TextArea diaryTextField;
     @FXML
     private Button backButton1;
-     @FXML
+    @FXML
     private Button createSchemaButton;
     @FXML
     private Button deleteSchemaButton;
     @FXML
     private Button showSchemaButton;
-    
+
     private Image image;
     @FXML
     private AnchorPane anchorPane1;
@@ -68,7 +68,7 @@ public class LinePetersenController implements Initializable {
     @FXML
     private Pane pane1;
     @FXML
-    private Pane pane2;    
+    private Pane pane2;
     @FXML
     private ImageView iv1;
     @FXML
@@ -77,44 +77,42 @@ public class LinePetersenController implements Initializable {
     private ImageView iv3;
     @FXML
     private ImageView iv4;
-    
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            image = new Image(new File("woman.png").toURI().toString());
+        image = new Image(new File("woman.png").toURI().toString());
         photo.setImage(image);
-        
-                try {
+
+        try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
             System.out.println("Fail to load the jdbc driver.");
         }
 
+        String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/beucjfoi";
+        String username = "beucjfoi";
+        String password = "EXQJyo9fmXNKkqC-CVoGoI2kE9XinAP8";
+
         try {
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "rynaqui16");
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM public.borgere WHERE navn ='Line Petersen'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM borgere WHERE navn = 'Line Petersen'");
             while (resultSet.next()) {
-                ageTextField.setText(resultSet.getString("alder")); 
-                depTextField.setText(resultSet.getString("afdeling")); 
-                cprTextField.setText(resultSet.getString("CPR-nr")); 
-                
-                
+                ageTextField.setText(resultSet.getString("alder"));
+                depTextField.setText(resultSet.getString("afdeling"));
+                cprTextField.setText(resultSet.getString("CPR"));
+
             }
-        } catch (SQLException ex) {
-            System.out.println("Couldn't connect.");
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
         }
     }
-
-    
 
     @FXML
     private void schemaButtonHandler(ActionEvent event) {
 
-   
         pane1.setVisible(false);
         pane2.setVisible(true);
 
@@ -137,7 +135,8 @@ public class LinePetersenController implements Initializable {
         window.setScene(scene);
         window.show();
     }
-     @FXML
+
+    @FXML
     private void backButton1Handler(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/Presentation/Line Petersen.fxml"));
         Scene scene = new Scene(root);
@@ -149,8 +148,6 @@ public class LinePetersenController implements Initializable {
 
     }
 
-    
-    
     @FXML
     private void createSchemaButtonHandler(ActionEvent event) {
         //TO DO 
@@ -166,6 +163,5 @@ public class LinePetersenController implements Initializable {
     private void showSchemaButtonHandler(ActionEvent event) {
         // TO DO 
     }
-
 
 }
