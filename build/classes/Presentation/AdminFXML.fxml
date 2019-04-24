@@ -3,21 +3,70 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="Logic.AdminController">
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.AdminController">
    <children>
-      <Label layoutX="242.0" layoutY="26.0" text="Vælg borger">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
-      <ListView fx:id="borgerListView" layoutX="91.0" layoutY="97.0" prefHeight="278.0" prefWidth="419.0" />
-      <Label fx:id="loggedInAsLabel" layoutX="14.0" layoutY="18.0" prefHeight="17.0" prefWidth="147.0" />
-      <Button fx:id="backButton" layoutX="15.0" layoutY="350.0" mnemonicParsing="false" onAction="#backButtonHandler" text="Tilbage" />
-      <Button fx:id="chooseButton" layoutX="18.0" layoutY="200.0" mnemonicParsing="false" onAction="#chooseButtonHandler" text="Vælg" />
-      <Button fx:id="logoutButton" layoutX="520.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
+      <Pane fx:id="startPane" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="242.0" layoutY="22.0" text="Vælg borger">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Button fx:id="chooseButton" layoutX="21.0" layoutY="175.0" mnemonicParsing="false" onAction="#chooseButtonHandler" text="Vælg" />
+            <Label fx:id="loggedInAsLabel1" layoutX="14.0" layoutY="14.0" prefHeight="3.0" prefWidth="200.0">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
+            <ListView fx:id="borgerListView" layoutX="91.0" layoutY="61.0" prefHeight="278.0" prefWidth="419.0" />
+            <Button fx:id="logoutButton" layoutX="542.0" layoutY="8.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
+            <Label fx:id="messageLabel" layoutX="217.0" layoutY="350.0" prefHeight="17.0" prefWidth="167.0" />
+         </children></Pane>
+      <Pane fx:id="borgerPane" prefHeight="400.0" prefWidth="600.0" visible="false">
+         <children>
+            <TextField fx:id="depTextField" editable="false" layoutX="102.0" layoutY="176.0" prefHeight="25.0" prefWidth="149.0" />
+            <TextField fx:id="ageTextField" editable="false" layoutX="102.0" layoutY="141.0" prefHeight="25.0" prefWidth="149.0" />
+            <Label fx:id="nameLabel" layoutX="30.0" layoutY="65.0" prefHeight="70.0" prefWidth="282.0" text="Navn">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="140.0" text="Alder">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="175.0" text="Afdeling">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="30.0" layoutY="207.0" text="CPR-nr.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="photo" fitHeight="125.0" fitWidth="132.0" layoutX="413.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="447.0" layoutY="153.0" text="Dagbog">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField editable="false" layoutX="389.0" layoutY="181.0" prefHeight="200.0" prefWidth="200.0" />
+            <TextField fx:id="cprTextField" editable="false" layoutX="102.0" layoutY="208.0" prefHeight="25.0" prefWidth="149.0" />
+            <Button fx:id="backButton1" layoutX="15.0" layoutY="360.0" mnemonicParsing="false" onAction="#backButton1Handler" text="Tilbage" />
+            <Button fx:id="logoutButton" layoutX="542.0" layoutY="8.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
+            <Label fx:id="loggedInAsLabel2" layoutX="14.0" layoutY="14.0" prefHeight="3.0" prefWidth="200.0" text="Label">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
