@@ -1,10 +1,12 @@
 package Logic;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -20,8 +22,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -38,8 +47,7 @@ public class AdminController implements Initializable {
     private AnchorPane anchorPane;
     @FXML
     private Pane startPane;
-    @FXML
-    private Pane borgerPane;
+
     @FXML
     private TextField depTextField;
     @FXML
@@ -58,14 +66,92 @@ public class AdminController implements Initializable {
     private ImageView photo;
     @FXML
     private Label messageLabel;
+    @FXML
+    private Button schemaButton;
+    @FXML
+    private Pane citizenPane;
+    @FXML
+    private Pane schemaPane;
+    @FXML
+    private Button createSchemaButton;
+    @FXML
+    private Pane createSchemaPane;
+    @FXML
+    private ImageView imageView1;
+    @FXML
+    private ImageView imageView2;
+    @FXML
+    private ImageView imageView3;
+    @FXML
+    private ImageView imageView4;
+    @FXML
+    private ImageView imageView5;
+    @FXML
+    private ImageView imageView6;
+    @FXML
+    private ImageView imageView7;
+    @FXML
+    private ImageView imageView8;
+    @FXML
+    private ImageView imageView9;
+    @FXML
+    private ImageView imageView10;
+    @FXML
+    private Button showSchemaButton;
+    @FXML
+    private Button backButton2;
+    @FXML
+    private Button backButton3;
+    @FXML
+    private ImageView gridPaneImageView1;
+    @FXML
+    private ImageView gridPaneImageView2;
+    @FXML
+    private ImageView gridPaneImageView3;
+    @FXML
+    private ImageView gridPaneImageView4;
+    @FXML
+    private ImageView gridPaneImageView5;
+    @FXML
+    private ImageView gridPaneImageView6;
+    @FXML
+    private ImageView gridPaneImageView7;
+    @FXML
+    private ImageView gridPaneImageView8;
+    @FXML
+    private ImageView gridPaneImageView9;
+    @FXML
+    private Button saveButton;
+    @FXML
+    private GridPane gridPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         loggedInAsLabel1.setText("Logget ind som: admin");
         loggedInAsLabel2.setText("Logget ind som: admin");
-        //File file = new File("borgerliste.txt");
-        // Scanner sc;
+
+        Image img1 = new Image(new File("1.png").toURI().toString());
+        Image img2 = new Image(new File("2.png").toURI().toString());
+        Image img3 = new Image(new File("3.png").toURI().toString());
+        Image img4 = new Image(new File("4.png").toURI().toString());
+        Image img5 = new Image(new File("5.png").toURI().toString());
+        Image img6 = new Image(new File("6.png").toURI().toString());
+        Image img7 = new Image(new File("7.png").toURI().toString());
+        Image img8 = new Image(new File("8.png").toURI().toString());
+        Image img9 = new Image(new File("9.png").toURI().toString());
+        Image img10 = new Image(new File("10.png").toURI().toString());
+        imageView1.setImage(img1);
+        imageView2.setImage(img2);
+        imageView3.setImage(img3);
+        imageView4.setImage(img4);
+        imageView5.setImage(img5);
+        imageView6.setImage(img6);
+        imageView7.setImage(img7);
+        imageView8.setImage(img8);
+        imageView9.setImage(img9);
+        imageView10.setImage(img10);
+
         ObservableList<String> list = FXCollections.observableArrayList();
 
         try {
@@ -84,15 +170,20 @@ public class AdminController implements Initializable {
 
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM citizens");
+
             while (resultSet.next()) {
                 list.add(resultSet.getString("name"));
 
             }
+            resultSet.close();
+
         } catch (java.sql.SQLException ex) {
             System.out.println(ex.getMessage());
+
         }
 
         borgerListView.setItems(list);
+
     }
 
     @FXML
@@ -103,7 +194,7 @@ public class AdminController implements Initializable {
             if (valgtBorger.trim().length() > 0) {
 
                 startPane.setVisible(false);
-                borgerPane.setVisible(true);
+                citizenPane.setVisible(true);
 
                 try {
                     Class.forName("org.postgresql.Driver");
@@ -127,6 +218,7 @@ public class AdminController implements Initializable {
                         depTextField.setText(resultSet.getString("department"));
                         cprTextField.setText(resultSet.getString("CPR"));
 
+                        resultSet.close();
                     }
                 } catch (java.sql.SQLException ex) {
                     System.out.println(ex.getMessage());
@@ -161,6 +253,170 @@ public class AdminController implements Initializable {
 
         window.setScene(scene);
         window.show();
+
+    }
+
+    @FXML
+    private void schemaButtonHandler(ActionEvent event) {
+        citizenPane.setVisible(false);
+        schemaPane.setVisible(true);
+
+    }
+
+    @FXML
+    private void createSchemaButtonHandler(ActionEvent event) {
+        schemaPane.setVisible(false);
+        createSchemaPane.setVisible(true);
+    }
+
+    @FXML
+    private void showSchemaButtonHandler(ActionEvent event) {
+    }
+
+    @FXML
+    private void backButton2Handler(ActionEvent event) {
+        citizenPane.setVisible(true);
+        schemaPane.setVisible(false);
+
+    }
+
+    @FXML
+    private void backButton3Handler(ActionEvent event) {
+        createSchemaPane.setVisible(false);
+        schemaPane.setVisible(true);
+    }
+
+    @FXML
+    private void handleDragDetected(MouseEvent event) {
+
+        if (event.getSource() == imageView1) {
+            Dragboard db = imageView1.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView2) {
+            Dragboard db = imageView2.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView2.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView3) {
+            Dragboard db = imageView3.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView3.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView4) {
+            Dragboard db = imageView4.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView4.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView5) {
+            Dragboard db = imageView5.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView5.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView6) {
+            Dragboard db = imageView6.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView6.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView7) {
+            Dragboard db = imageView7.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView7.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView8) {
+            Dragboard db = imageView8.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView8.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView9) {
+            Dragboard db = imageView9.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView9.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView10) {
+            Dragboard db = imageView10.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView10.getImage());
+            db.setContent(cb);
+            event.consume();
+        }
+
+    }
+
+    @FXML
+    private void handleDropDetected(DragEvent event) {
+        if (event.getSource() == gridPaneImageView1) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView1.setImage(img);
+        } else if (event.getSource() == gridPaneImageView2) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView2.setImage(img);
+        } else if (event.getSource() == gridPaneImageView3) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView3.setImage(img);
+        } else if (event.getSource() == gridPaneImageView4) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView4.setImage(img);
+        } else if (event.getSource() == gridPaneImageView5) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView5.setImage(img);
+        } else if (event.getSource() == gridPaneImageView6) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView6.setImage(img);
+        } else if (event.getSource() == gridPaneImageView7) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView7.setImage(img);
+        } else if (event.getSource() == gridPaneImageView8) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView8.setImage(img);
+        } else if (event.getSource() == gridPaneImageView9) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView9.setImage(img);
+        }
+    }
+
+    @FXML
+    private void handleDragOver(DragEvent event) {
+        if (event.getDragboard().hasImage()) {
+            event.acceptTransferModes(TransferMode.ANY);
+        }
+    }
+
+    @FXML
+    private void saveButtonHandler(ActionEvent event) {
+
+        String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
+
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/beucjfoi";
+        String username = "beucjfoi";
+        String password = "EXQJyo9fmXNKkqC-CVoGoI2kE9XinAP8";
+
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("INSERT INTO citizens WHERE name ='" + valgtBorger + "' (img) VALUES(" + gridPaneImageView1.getImage() + ")");
+            resultSet.close();
+        } catch (SQLException ex) {
+
+        }
 
     }
 
