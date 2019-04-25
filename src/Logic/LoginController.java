@@ -2,6 +2,10 @@ package Logic;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,21 +39,61 @@ public class LoginController implements Initializable {
     public static String adminUsername = "admin";
     public static String adminPassword = "123";
 
+    public static String citizenUsername;
+    public static String citizenPassword;
+
     @FXML
     private void loginButtonHandler(ActionEvent event) throws IOException {
-        if (passwordField.getText().equals(adminPassword) && usernameField.getText().equals(adminUsername)) {
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
 
-            Parent root = FXMLLoader.load(getClass().getResource("/Presentation/AdminFXML.fxml"));
-            Scene scene = new Scene(root);
+        String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/beucjfoi";
+        String username = "beucjfoi";
+        String password = "EXQJyo9fmXNKkqC-CVoGoI2kE9XinAP8";
 
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
+            System.out.println("Connected!");
 
-            window.setScene(scene);
-            window.show();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT username,password FROM citizens");
 
-        } else {
+            while (resultSet.next()) {
 
-            checkLabel.setText("Forkert kodeord/brugernavn.");
+                citizenUsername = resultSet.getString("username");
+                citizenPassword = resultSet.getString("password");
+
+                if (passwordField.getText().equals(citizenPassword) && usernameField.getText().equals(citizenUsername)) {
+
+                    Parent root = FXMLLoader.load(getClass().getResource("/Presentation/Citizen.fxml"));
+                    Scene scene = new Scene(root);
+
+                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                    window.setScene(scene);
+                    window.show();
+
+                } else if (passwordField.getText().equals(adminPassword) && usernameField.getText().equals(adminUsername)) {
+
+                    Parent root = FXMLLoader.load(getClass().getResource("/Presentation/AdminFXML.fxml"));
+                    Scene scene = new Scene(root);
+
+                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                    window.setScene(scene);
+                    window.show();
+
+                } else {
+                    checkLabel.setText("Forkert kodeord/brugernavn.");
+                }
+
+            }
+
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
 
         }
 

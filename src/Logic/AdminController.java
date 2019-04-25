@@ -1,5 +1,9 @@
 package Logic;
 
+import static Logic.LoginController.adminPassword;
+import static Logic.LoginController.adminUsername;
+import static Logic.LoginController.citizenPassword;
+import static Logic.LoginController.citizenUsername;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -57,11 +62,7 @@ public class AdminController implements Initializable {
     @FXML
     private TextField cprTextField;
     @FXML
-    private Button backButton1;
-    @FXML
     private Label loggedInAsLabel1;
-    @FXML
-    private Label loggedInAsLabel2;
     @FXML
     private ImageView photo;
     @FXML
@@ -124,12 +125,20 @@ public class AdminController implements Initializable {
     private Button saveButton;
     @FXML
     private GridPane gridPane;
+    @FXML
+    private Pane loginPane;
+    @FXML
+    private PasswordField passwordField;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private Button loginButton;
+    @FXML
+    private Label checkLabel;
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-        loggedInAsLabel1.setText("Logget ind som: admin");
-        loggedInAsLabel2.setText("Logget ind som: admin");
 
         Image img1 = new Image(new File("1.png").toURI().toString());
         Image img2 = new Image(new File("2.png").toURI().toString());
@@ -169,7 +178,7 @@ public class AdminController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM citizens");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM citizens WHERE name != 'admin'");
 
             while (resultSet.next()) {
                 list.add(resultSet.getString("name"));
@@ -217,6 +226,7 @@ public class AdminController implements Initializable {
                         ageTextField.setText(resultSet.getString("age"));
                         depTextField.setText(resultSet.getString("department"));
                         cprTextField.setText(resultSet.getString("CPR"));
+                        loggedInAsLabel1.setText("Logget ind som:" + resultSet.getString("name"));
 
                         resultSet.close();
                     }
@@ -232,32 +242,25 @@ public class AdminController implements Initializable {
     }
 
     @FXML
-    private void backButton1Handler(ActionEvent event) throws IOException {
-
-        Parent root = FXMLLoader.load(getClass().getResource("/Presentation/AdminFXML.fxml"));
-        Scene scene = new Scene(root);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        window.setScene(scene);
-        window.show();
-    }
-
-    @FXML
     private void logoutButtonHandler(ActionEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("/Presentation/LoginFXML.fxml"));
-        Scene scene = new Scene(root);
+        startPane.setVisible(false);
+        citizenPane.setVisible(false);
+        schemaPane.setVisible(false);
+        createSchemaPane.setVisible(false);
 
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        loginPane.setVisible(true);
 
-        window.setScene(scene);
-        window.show();
+        usernameField.setText("");
+        passwordField.setText("");
+        checkLabel.setText("");
+        createSchemaButton.setVisible(true);
 
     }
 
     @FXML
     private void schemaButtonHandler(ActionEvent event) {
+
         citizenPane.setVisible(false);
         schemaPane.setVisible(true);
 
@@ -267,6 +270,7 @@ public class AdminController implements Initializable {
     private void createSchemaButtonHandler(ActionEvent event) {
         schemaPane.setVisible(false);
         createSchemaPane.setVisible(true);
+
     }
 
     @FXML
@@ -415,6 +419,94 @@ public class AdminController implements Initializable {
             ResultSet resultSet = statement.executeQuery("INSERT INTO citizens WHERE name ='" + valgtBorger + "' (img) VALUES(" + gridPaneImageView1.getImage() + ")");
             resultSet.close();
         } catch (SQLException ex) {
+
+        }
+
+    }
+
+    @FXML
+    private void loginButtonHandler(ActionEvent event) {
+
+        adminUsername = "admin";
+        adminPassword = "123";
+
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/beucjfoi";
+        String username = "beucjfoi";
+        String password = "EXQJyo9fmXNKkqC-CVoGoI2kE9XinAP8";
+
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM citizens WHERE name != 'admin'");
+
+            while (resultSet.next()) {
+
+                citizenUsername = resultSet.getString("username");
+                citizenPassword = resultSet.getString("password");
+
+                if (passwordField.getText().equals(citizenPassword) && usernameField.getText().equals(citizenUsername)) {
+                    loginPane.setVisible(false);
+                    citizenPane.setVisible(true);
+                    createSchemaButton.setVisible(false);
+
+                    nameLabel.setText(resultSet.getString("name"));
+                    ageTextField.setText(resultSet.getString("age"));
+                    depTextField.setText(resultSet.getString("department"));
+                    cprTextField.setText(resultSet.getString("CPR"));
+
+                    resultSet.close();
+
+                } else {
+                    checkLabel.setText("Forkert kodeord/brugernavn.");
+                }
+
+            }
+
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM citizens WHERE name = 'admin'");
+
+            while (resultSet.next()) {
+
+                adminUsername = resultSet.getString("username");
+                adminPassword = resultSet.getString("password");
+
+                if (passwordField.getText().equals(adminPassword) && usernameField.getText().equals(adminUsername)) {
+                    loginPane.setVisible(false);
+                    startPane.setVisible(true);
+                    loggedInAsLabel1.setText("Logget ind som: " + resultSet.getString("name"));
+
+                    resultSet.close();
+
+                } else {
+                    checkLabel.setText("Forkert kodeord/brugernavn.");
+                }
+
+            }
+
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
 
         }
 
