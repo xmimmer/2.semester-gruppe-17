@@ -269,6 +269,7 @@ public class AdminController implements Initializable {
         citizenPane.setVisible(false);
         schemaPane.setVisible(false);
         createSchemaPane.setVisible(false);
+        showSchemaPane.setVisible(false); 
 
         loginPane.setVisible(true);
 
