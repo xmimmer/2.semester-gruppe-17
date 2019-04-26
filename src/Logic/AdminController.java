@@ -445,14 +445,26 @@ public class AdminController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM citizens WHERE name != 'admin'");
+               ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE email = lower('"+usernameField.getText()+"') AND password = crypt('"+passwordField.getText()+"',password)");
 
             while (resultSet.next()) {
-
+                String testPass = new String(resultSet.getString("password"));
+                System.out.println(resultSet.getString("password"));
                 citizenUsername = resultSet.getString("username");
                 citizenPassword = resultSet.getString("password");
-
-                if (passwordField.getText().equals(citizenPassword) && usernameField.getText().equals(citizenUsername)) {
+               
+                if (testPass == "password"){
+                    checkLabel.setText("correct");
+                    
+                    //checkLabel.setText("Forkert kodeord/brugernavn.");
+                    } else {
+                            
+                    loginPane.setVisible(false);
+                    citizenPane.setVisible(true);
+                    createSchemaButton.setVisible(false);
+                            }
+                        
+               /* if (passwordField.getText().equals(citizenPassword) && usernameField.getText().equals(citizenUsername)) {
                     loginPane.setVisible(false);
                     citizenPane.setVisible(true);
                     createSchemaButton.setVisible(false);
@@ -466,7 +478,7 @@ public class AdminController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
-                }
+                }*/
 
             }
 
@@ -500,7 +512,7 @@ public class AdminController implements Initializable {
                     resultSet.close();
 
                 } else {
-                    checkLabel.setText("Forkert kodeord/brugernavn.");
+                    //checkLabel.setText("Forkert kodeord/brugernavn.");
                 }
 
             }

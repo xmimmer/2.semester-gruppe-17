@@ -42,7 +42,7 @@ public class LoginController implements Initializable {
     public static String citizenUsername;
     public static String citizenPassword;
 
-    @FXML
+   /* @FXML
     private void loginButtonHandler(ActionEvent event) throws IOException {
         try {
             Class.forName("org.postgresql.Driver");
@@ -59,10 +59,12 @@ public class LoginController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT username,password FROM citizens");
-
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE email = lower('"+usernameField.getText()+"') AND password = crypt('"+passwordField.getText()+"',password)");
+            
             while (resultSet.next()) {
-
+                System.out.println(resultSet.getString("id"));
+                System.out.println(resultSet.getString("email"));
+                System.out.println(resultSet.getString("password"));
                 citizenUsername = resultSet.getString("username");
                 citizenPassword = resultSet.getString("password");
 
@@ -98,5 +100,5 @@ public class LoginController implements Initializable {
         }
 
     }
-
+*/
 }
