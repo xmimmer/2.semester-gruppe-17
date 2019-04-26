@@ -1,9 +1,6 @@
 package Logic;
 
-import static Logic.LoginController.adminPassword;
-import static Logic.LoginController.adminUsername;
-import static Logic.LoginController.citizenPassword;
-import static Logic.LoginController.citizenUsername;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -135,11 +132,33 @@ public class AdminController implements Initializable {
     private Button loginButton;
     @FXML
     private Label checkLabel;
-
+    @FXML
+    private ImageView showSchemaImageView1;
+    @FXML
+    private ImageView showSchemaImageView2;
+    @FXML
+    private ImageView showSchemaImageView3;
+    @FXML
+    private ImageView showSchemaImageView4;
+    @FXML
+    private ImageView showSchemaImageView5;
+    @FXML
+    private ImageView showSchemaImageView6;
+    @FXML
+    private ImageView showSchemaImageView7;
+    @FXML
+    private ImageView showSchemaImageView8;
+    @FXML
+    private ImageView showSchemaImageView9;
+    @FXML
+    private Pane showSchemaPane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+
+        
+        
         Image img1 = new Image(new File("1.png").toURI().toString());
         Image img2 = new Image(new File("2.png").toURI().toString());
         Image img3 = new Image(new File("3.png").toURI().toString());
@@ -184,6 +203,7 @@ public class AdminController implements Initializable {
                 list.add(resultSet.getString("name"));
 
             }
+            connection.close(); 
             resultSet.close();
 
         } catch (java.sql.SQLException ex) {
@@ -227,7 +247,8 @@ public class AdminController implements Initializable {
                         depTextField.setText(resultSet.getString("department"));
                         cprTextField.setText(resultSet.getString("CPR"));
                         loggedInAsLabel1.setText("Logget ind som:" + resultSet.getString("name"));
-
+                        
+                        connection.close(); 
                         resultSet.close();
                     }
                 } catch (java.sql.SQLException ex) {
@@ -275,6 +296,9 @@ public class AdminController implements Initializable {
 
     @FXML
     private void showSchemaButtonHandler(ActionEvent event) {
+        schemaPane.setVisible(false);
+        showSchemaPane.setVisible(true);
+
     }
 
     @FXML
@@ -399,8 +423,8 @@ public class AdminController implements Initializable {
     @FXML
     private void saveButtonHandler(ActionEvent event) {
 
+        /*
         String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
-
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
@@ -421,14 +445,33 @@ public class AdminController implements Initializable {
         } catch (SQLException ex) {
 
         }
-
+        
+         */
+        Image img1 = gridPaneImageView1.getImage();
+        Image img2 = gridPaneImageView2.getImage();
+        Image img3 = gridPaneImageView3.getImage();
+        Image img4 = gridPaneImageView4.getImage();
+        Image img5 = gridPaneImageView5.getImage();
+        Image img6 = gridPaneImageView6.getImage();
+        Image img7 = gridPaneImageView7.getImage();
+        Image img8 = gridPaneImageView8.getImage();
+        Image img9 = gridPaneImageView9.getImage();
+        showSchemaImageView1.setImage(img1);
+        showSchemaImageView2.setImage(img2);
+        showSchemaImageView3.setImage(img3);
+        showSchemaImageView4.setImage(img4);
+        showSchemaImageView5.setImage(img5);
+        showSchemaImageView6.setImage(img6);
+        showSchemaImageView7.setImage(img7);
+        showSchemaImageView8.setImage(img8);
+        showSchemaImageView9.setImage(img9);
     }
 
     @FXML
     private void loginButtonHandler(ActionEvent event) {
 
-        adminUsername = "admin";
-        adminPassword = "123";
+        String adminUsername = "admin";
+        String adminPassword = "123";
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -439,6 +482,9 @@ public class AdminController implements Initializable {
         String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/beucjfoi";
         String username = "beucjfoi";
         String password = "EXQJyo9fmXNKkqC-CVoGoI2kE9XinAP8";
+        
+        String citizenUsername;
+        String citizenPassword;
 
         try {
             Connection connection = DriverManager.getConnection(databaseURL, username, password);
@@ -461,7 +507,8 @@ public class AdminController implements Initializable {
                     ageTextField.setText(resultSet.getString("age"));
                     depTextField.setText(resultSet.getString("department"));
                     cprTextField.setText(resultSet.getString("CPR"));
-
+                    
+                    connection.close(); 
                     resultSet.close();
 
                 } else {
@@ -496,7 +543,8 @@ public class AdminController implements Initializable {
                     loginPane.setVisible(false);
                     startPane.setVisible(true);
                     loggedInAsLabel1.setText("Logget ind som: " + resultSet.getString("name"));
-
+                    
+                    connection.close(); 
                     resultSet.close();
 
                 } else {
