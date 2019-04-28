@@ -1,6 +1,5 @@
 package Logic;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -152,13 +151,14 @@ public class AdminController implements Initializable {
     private ImageView showSchemaImageView9;
     @FXML
     private Pane showSchemaPane;
+    @FXML
+    private Button deleteSchemaButton;
+    @FXML
+    private Button backButton4;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-
-        
-        
         Image img1 = new Image(new File("1.png").toURI().toString());
         Image img2 = new Image(new File("2.png").toURI().toString());
         Image img3 = new Image(new File("3.png").toURI().toString());
@@ -203,7 +203,7 @@ public class AdminController implements Initializable {
                 list.add(resultSet.getString("name"));
 
             }
-            connection.close(); 
+            connection.close();
             resultSet.close();
 
         } catch (java.sql.SQLException ex) {
@@ -247,8 +247,8 @@ public class AdminController implements Initializable {
                         depTextField.setText(resultSet.getString("department"));
                         cprTextField.setText(resultSet.getString("CPR"));
                         loggedInAsLabel1.setText("Logget ind som:" + resultSet.getString("name"));
-                        
-                        connection.close(); 
+
+                        connection.close();
                         resultSet.close();
                     }
                 } catch (java.sql.SQLException ex) {
@@ -269,7 +269,7 @@ public class AdminController implements Initializable {
         citizenPane.setVisible(false);
         schemaPane.setVisible(false);
         createSchemaPane.setVisible(false);
-        showSchemaPane.setVisible(false); 
+        showSchemaPane.setVisible(false);
 
         loginPane.setVisible(true);
 
@@ -293,6 +293,16 @@ public class AdminController implements Initializable {
         schemaPane.setVisible(false);
         createSchemaPane.setVisible(true);
 
+        gridPaneImageView1.setImage(null);
+        gridPaneImageView2.setImage(null);
+        gridPaneImageView3.setImage(null);
+        gridPaneImageView4.setImage(null);
+        gridPaneImageView5.setImage(null);
+        gridPaneImageView6.setImage(null);
+        gridPaneImageView7.setImage(null);
+        gridPaneImageView8.setImage(null);
+        gridPaneImageView9.setImage(null);
+
     }
 
     @FXML
@@ -311,8 +321,15 @@ public class AdminController implements Initializable {
 
     @FXML
     private void backButton3Handler(ActionEvent event) {
-        createSchemaPane.setVisible(false);
         schemaPane.setVisible(true);
+        createSchemaPane.setVisible(false);
+    }
+
+    @FXML
+    private void backButton4Handler(ActionEvent event) {
+        showSchemaPane.setVisible(false);
+        schemaPane.setVisible(true);
+
     }
 
     @FXML
@@ -483,7 +500,7 @@ public class AdminController implements Initializable {
         String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/beucjfoi";
         String username = "beucjfoi";
         String password = "EXQJyo9fmXNKkqC-CVoGoI2kE9XinAP8";
-        
+
         String citizenUsername;
         String citizenPassword;
 
@@ -508,8 +525,8 @@ public class AdminController implements Initializable {
                     ageTextField.setText(resultSet.getString("age"));
                     depTextField.setText(resultSet.getString("department"));
                     cprTextField.setText(resultSet.getString("CPR"));
-                    
-                    connection.close(); 
+
+                    connection.close();
                     resultSet.close();
 
                 } else {
@@ -544,8 +561,8 @@ public class AdminController implements Initializable {
                     loginPane.setVisible(false);
                     startPane.setVisible(true);
                     loggedInAsLabel1.setText("Logget ind som: " + resultSet.getString("name"));
-                    
-                    connection.close(); 
+
+                    connection.close();
                     resultSet.close();
 
                 } else {
@@ -559,6 +576,19 @@ public class AdminController implements Initializable {
 
         }
 
+    }
+
+    @FXML
+    private void deleteSchemaButtonHandler(ActionEvent event) {
+        showSchemaImageView1.setImage(null);
+        showSchemaImageView2.setImage(null);
+        showSchemaImageView3.setImage(null);
+        showSchemaImageView4.setImage(null);
+        showSchemaImageView5.setImage(null);
+        showSchemaImageView6.setImage(null);
+        showSchemaImageView7.setImage(null);
+        showSchemaImageView8.setImage(null);
+        showSchemaImageView9.setImage(null);
     }
 
 }

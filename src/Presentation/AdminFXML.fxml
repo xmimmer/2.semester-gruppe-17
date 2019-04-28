@@ -85,7 +85,7 @@
       </Pane>
       <Pane fx:id="schemaPane" prefHeight="400.0" prefWidth="600.0" visible="false">
          <children>
-            <Button fx:id="createSchemaButton" layoutX="150.0" layoutY="350.0" mnemonicParsing="false" onAction="#createSchemaButtonHandler" text="Opret skema">
+            <Button fx:id="createSchemaButton" layoutX="155.0" layoutY="350.0" mnemonicParsing="false" onAction="#createSchemaButtonHandler" text="Opret skema">
                <font>
                   <Font size="18.0" />
                </font></Button>
@@ -95,6 +95,10 @@
                </font></Button>
             <Button fx:id="backButton2" layoutX="15.0" layoutY="360.0" mnemonicParsing="false" onAction="#backButton2Handler" text="Tilbage" />
             <Button fx:id="logoutButton" layoutX="542.0" layoutY="8.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
+            <Button fx:id="deleteSchemaButton" layoutX="420.0" layoutY="350.0" mnemonicParsing="false" onAction="#deleteSchemaButtonHandler" text="Slet skema">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
          </children>
       </Pane>
       <Pane fx:id="createSchemaPane" prefHeight="400.0" prefWidth="600.0" visible="false">
@@ -151,6 +155,7 @@
       </Pane>
       <Pane fx:id="showSchemaPane" prefHeight="400.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <Button fx:id="logoutButton" layoutX="540.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
             <GridPane prefHeight="400.0" prefWidth="600.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -174,7 +179,7 @@
                   <ImageView fx:id="showSchemaImageView9" fitHeight="134.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <Button fx:id="logoutButton" layoutX="540.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
+            <Button fx:id="backButton4" layoutX="15.0" layoutY="360.0" mnemonicParsing="false" onAction="#backButton4Handler" text="Tilbage" />
          </children>
       </Pane>
    </children>
