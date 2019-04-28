@@ -520,6 +520,7 @@ public class AdminController implements Initializable {
                     loginPane.setVisible(false);
                     citizenPane.setVisible(true);
                     createSchemaButton.setVisible(false);
+                    deleteSchemaButton.setVisible(false); 
 
                     nameLabel.setText(resultSet.getString("name"));
                     ageTextField.setText(resultSet.getString("age"));

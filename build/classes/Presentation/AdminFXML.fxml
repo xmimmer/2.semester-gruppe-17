@@ -155,7 +155,6 @@
       </Pane>
       <Pane fx:id="showSchemaPane" prefHeight="400.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="logoutButton" layoutX="540.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
             <GridPane prefHeight="400.0" prefWidth="600.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -180,6 +179,7 @@
                </children>
             </GridPane>
             <Button fx:id="backButton4" layoutX="15.0" layoutY="360.0" mnemonicParsing="false" onAction="#backButton4Handler" text="Tilbage" />
+            <Button fx:id="logoutButton" layoutX="540.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
          </children>
       </Pane>
    </children>
