@@ -198,37 +198,10 @@ public class AdminController implements Initializable {
 
         ObservableList<String> list = FXCollections.observableArrayList();
 
-        String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
-        ObservableList<String> list2 = FXCollections.observableArrayList();
-
-        String databaseURL2 = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cbsbnvky";
-        String username2 = "cbsbnvky";
-        String password2 = "aGk4yWvjGnEhloZEiNEXpV9pXrPLj_RQ";
-
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
             System.out.println("Fail to load the jdbc driver.");
-        }
-
-        try {
-            Connection connection = DriverManager.getConnection(databaseURL2, username2, password2);
-            System.out.println("Connected!");
-
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE name = '" + nameLabel.getText() + "'");
-            while (resultSet.next()) {
-                list2.add(resultSet.getString("diary"));
-                diaryListView.setItems(list2);
-
-            }
-
-            connection.close();
-            resultSet.close();
-
-        } catch (java.sql.SQLException ex) {
-            System.out.println(ex.getMessage());
-
         }
 
         try {
