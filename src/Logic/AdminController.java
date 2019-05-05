@@ -156,7 +156,6 @@ public class AdminController implements Initializable {
     private Button deleteSchemaButton;
     @FXML
     private Button backButton4;
-    @FXML
     private ListView<String> diaryListView;
     @FXML
     private Button saveDiaryButton;
@@ -170,6 +169,8 @@ public class AdminController implements Initializable {
     private Button writeNoteButton;
     @FXML
     private Button closeNoteButton;
+    @FXML
+    private TextArea diaryText;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -258,7 +259,6 @@ public class AdminController implements Initializable {
             System.out.println(ex.getMessage());
 
         }
-        
 
         borgerListView.setItems(list);
 
@@ -328,10 +328,10 @@ public class AdminController implements Initializable {
         diaryTextArea.setText("");
         createSchemaButton.setVisible(true);
 
-        diaryListView.setItems(null);
         writeNoteButton.setVisible(true);
         clearDiaryButton.setVisible(true);
         updateDiaryButton.setVisible(true);
+        diaryText.setText("");
 
     }
 
@@ -580,8 +580,6 @@ public class AdminController implements Initializable {
                     clearDiaryButton.setVisible(false);
                     diaryTextArea.setVisible(false);
                     writeNoteButton.setVisible(false);
-                 
-             
 
                     nameLabel.setText(resultSet.getString("name"));
                     ageTextField.setText(resultSet.getString("age"));
@@ -657,7 +655,6 @@ public class AdminController implements Initializable {
     private void saveDiaryButtonAction(ActionEvent event) {
 
         String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
-        ObservableList<String> list2 = FXCollections.observableArrayList();
 
         String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cbsbnvky";
         String username = "cbsbnvky";
@@ -719,8 +716,8 @@ public class AdminController implements Initializable {
 
     @FXML
     private void updateDiaryButtonAction(ActionEvent event) {
-        String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
-        ObservableList<String> list2 = FXCollections.observableArrayList();
+
+        diaryTextArea.setText("");
 
         String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cbsbnvky";
         String username = "cbsbnvky";
@@ -737,10 +734,9 @@ public class AdminController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE name = '" + nameLabel.getText()  + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE name = '" + nameLabel.getText() + "'");
             while (resultSet.next()) {
-                list2.add(resultSet.getString("diary"));
-                diaryListView.setItems(list2);
+                diaryText.setText(resultSet.getString("diary"));
 
             }
 
