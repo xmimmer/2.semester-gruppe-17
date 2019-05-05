@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -155,6 +156,20 @@ public class AdminController implements Initializable {
     private Button deleteSchemaButton;
     @FXML
     private Button backButton4;
+    @FXML
+    private ListView<String> diaryListView;
+    @FXML
+    private Button saveDiaryButton;
+    @FXML
+    private Button clearDiaryButton;
+    @FXML
+    private Button updateDiaryButton;
+    @FXML
+    private TextArea diaryTextArea;
+    @FXML
+    private Button writeNoteButton;
+    @FXML
+    private Button closeNoteButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -181,6 +196,39 @@ public class AdminController implements Initializable {
         imageView10.setImage(img10);
 
         ObservableList<String> list = FXCollections.observableArrayList();
+
+        String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
+        ObservableList<String> list2 = FXCollections.observableArrayList();
+
+        String databaseURL2 = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cbsbnvky";
+        String username2 = "cbsbnvky";
+        String password2 = "aGk4yWvjGnEhloZEiNEXpV9pXrPLj_RQ";
+
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL2, username2, password2);
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE name = '" + nameLabel.getText() + "'");
+            while (resultSet.next()) {
+                list2.add(resultSet.getString("diary"));
+                diaryListView.setItems(list2);
+
+            }
+
+            connection.close();
+            resultSet.close();
+
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -210,6 +258,7 @@ public class AdminController implements Initializable {
             System.out.println(ex.getMessage());
 
         }
+        
 
         borgerListView.setItems(list);
 
@@ -276,7 +325,13 @@ public class AdminController implements Initializable {
         usernameField.setText("");
         passwordField.setText("");
         checkLabel.setText("");
+        diaryTextArea.setText("");
         createSchemaButton.setVisible(true);
+
+        diaryListView.setItems(null);
+        writeNoteButton.setVisible(true);
+        clearDiaryButton.setVisible(true);
+        updateDiaryButton.setVisible(true);
 
     }
 
@@ -503,7 +558,6 @@ public class AdminController implements Initializable {
 
         String citizenUsername;
         String citizenPassword;
-
         try {
             Connection connection = DriverManager.getConnection(databaseURL, username, password);
             System.out.println("Connected!");
@@ -517,10 +571,17 @@ public class AdminController implements Initializable {
                 citizenPassword = resultSet.getString("password");
 
                 if (passwordField.getText().equals(citizenPassword) && usernameField.getText().equals(citizenUsername)) {
+
                     loginPane.setVisible(false);
                     citizenPane.setVisible(true);
                     createSchemaButton.setVisible(false);
-                    deleteSchemaButton.setVisible(false); 
+                    deleteSchemaButton.setVisible(false);
+                    saveDiaryButton.setVisible(false);
+                    clearDiaryButton.setVisible(false);
+                    diaryTextArea.setVisible(false);
+                    writeNoteButton.setVisible(false);
+                 
+             
 
                     nameLabel.setText(resultSet.getString("name"));
                     ageTextField.setText(resultSet.getString("age"));
@@ -590,6 +651,125 @@ public class AdminController implements Initializable {
         showSchemaImageView7.setImage(null);
         showSchemaImageView8.setImage(null);
         showSchemaImageView9.setImage(null);
+    }
+
+    @FXML
+    private void saveDiaryButtonAction(ActionEvent event) {
+
+        String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
+        ObservableList<String> list2 = FXCollections.observableArrayList();
+
+        String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cbsbnvky";
+        String username = "cbsbnvky";
+        String password = "aGk4yWvjGnEhloZEiNEXpV9pXrPLj_RQ";
+
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + diaryTextArea.getText() + "' WHERE name = '" + valgtBorger + "'");
+
+            connection.close();
+            resultSet.close();
+
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+
+    }
+
+    @FXML
+    private void clearDiaryButtonAction(ActionEvent event) {
+        String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
+
+        String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cbsbnvky";
+        String username = "cbsbnvky";
+        String password = "aGk4yWvjGnEhloZEiNEXpV9pXrPLj_RQ";
+
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + "empty" + "' WHERE name = '" + valgtBorger + "'");
+
+            connection.close();
+            resultSet.close();
+
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+
+    }
+
+    @FXML
+    private void updateDiaryButtonAction(ActionEvent event) {
+        String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
+        ObservableList<String> list2 = FXCollections.observableArrayList();
+
+        String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cbsbnvky";
+        String username = "cbsbnvky";
+        String password = "aGk4yWvjGnEhloZEiNEXpV9pXrPLj_RQ";
+
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        try {
+            Connection connection = DriverManager.getConnection(databaseURL, username, password);
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE name = '" + nameLabel.getText()  + "'");
+            while (resultSet.next()) {
+                list2.add(resultSet.getString("diary"));
+                diaryListView.setItems(list2);
+
+            }
+
+            connection.close();
+            resultSet.close();
+
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+
+    }
+
+    @FXML
+    private void writeNoteButtonHandler(ActionEvent event) {
+        diaryTextArea.setVisible(true);
+        saveDiaryButton.setVisible(true);
+        closeNoteButton.setVisible(true);
+
+    }
+
+    @FXML
+    private void closeNoteButtonHandler(ActionEvent event) {
+        writeNoteButton.setVisible(true);
+        diaryTextArea.setVisible(false);
+        saveDiaryButton.setVisible(false);
+        closeNoteButton.setVisible(false);
+        diaryTextArea.setText("");
+
     }
 
 }
