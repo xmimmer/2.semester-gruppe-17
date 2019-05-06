@@ -675,7 +675,7 @@ public class AdminController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + "empty" + "' WHERE name = '" + valgtBorger + "'");
+            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + "Ingen notater." + "' WHERE name = '" + valgtBorger + "'");
 
             connection.close();
             resultSet.close();
@@ -707,9 +707,10 @@ public class AdminController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE name = '" + nameLabel.getText() + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE CPR = '" + cprTextField.getText() + "'");
             while (resultSet.next()) {
-                diaryText.setText(resultSet.getString("diary"));
+                
+                diaryText.setText(diaryText.getText() + resultSet.getString("diary"));
 
             }
 
