@@ -659,6 +659,7 @@ public class AdminController implements Initializable {
     @FXML
     private void clearDiaryButtonAction(ActionEvent event) {
         String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
+        diaryText.setText("");
 
         String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cbsbnvky";
         String username = "cbsbnvky";
@@ -709,9 +710,7 @@ public class AdminController implements Initializable {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE CPR = '" + cprTextField.getText() + "'");
             while (resultSet.next()) {
-                
-                diaryText.setText(diaryText.getText() + resultSet.getString("diary"));
-
+                diaryText.setText(diaryText.getText() + resultSet.getString("diary") + "\n");
             }
 
             connection.close();
