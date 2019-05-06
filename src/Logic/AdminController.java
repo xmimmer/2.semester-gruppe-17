@@ -95,6 +95,68 @@ public class AdminController implements Initializable {
     @FXML
     private ImageView imageView10;
     @FXML
+    private ImageView imageView61;
+    @FXML
+    private ImageView imageView71;
+    @FXML
+    private ImageView imageView81;
+    @FXML
+    private ImageView imageView91;
+    @FXML
+    private ImageView imageView1901;
+    @FXML
+    private ImageView imageView1801;
+    @FXML
+    private ImageView imageView1701;
+    @FXML
+    private ImageView imageView1601;
+    @FXML
+    private ImageView imageView1011;
+    @FXML
+    private ImageView imageView1021;
+    @FXML
+    private ImageView imageView1031;
+    @FXML
+    private ImageView imageView1041;
+    @FXML
+    private ImageView imageView102;
+    @FXML
+    private ImageView imageView103;
+    @FXML
+    private ImageView imageView104;
+    @FXML
+    private ImageView imageView62;
+    @FXML
+    private ImageView imageView72;
+    @FXML
+    private ImageView imageView82;
+    @FXML
+    private ImageView imageView92;
+    @FXML
+    private ImageView imageView1012;
+    @FXML
+    private ImageView imageView1022;
+    @FXML
+    private ImageView imageView1032;
+    @FXML
+    private ImageView imageView1042;
+    @FXML
+    private ImageView imageView63;
+    @FXML
+    private ImageView imageView73;
+    @FXML
+    private ImageView imageView83;
+    @FXML
+    private ImageView imageView93;
+    @FXML
+    private ImageView imageView1013;
+    @FXML
+    private ImageView imageView1023;
+    @FXML
+    private ImageView imageView1033;
+    @FXML
+    private ImageView imageView1043;
+    @FXML
     private Button showSchemaButton;
     @FXML
     private Button backButton2;
@@ -118,6 +180,49 @@ public class AdminController implements Initializable {
     private ImageView gridPaneImageView8;
     @FXML
     private ImageView gridPaneImageView9;
+    @FXML
+    private ImageView gridPaneImageView11;
+    @FXML
+    private ImageView gridPaneImageView12;
+    @FXML
+    private ImageView gridPaneImageView13;
+    @FXML
+    private ImageView gridPaneImageView14;
+    @FXML
+    private ImageView gridPaneImageView15;
+    @FXML
+    private ImageView gridPaneImageView16;
+    @FXML
+    private ImageView gridPaneImageView17;
+    @FXML
+    private ImageView gridPaneImageView18;
+    @FXML
+    private ImageView gridPaneImageView19;
+    @FXML
+    private ImageView gridPaneImageView110;
+    @FXML
+    private ImageView gridPaneImageView111;
+    @FXML
+    private ImageView gridPaneImageView112;
+    @FXML
+    private ImageView gridPaneImageView113;
+    @FXML
+    private ImageView gridPaneImageView114;
+    @FXML
+    private ImageView gridPaneImageView115;
+    @FXML
+    private ImageView gridPaneImageView116;
+    @FXML
+    private ImageView gridPaneImageView117;
+    @FXML
+    private ImageView gridPaneImageView118;
+    @FXML
+    private ImageView gridPaneImageView119;
+    @FXML
+    private ImageView gridPaneImageView120;
+    @FXML
+    private ImageView gridPaneImageView121;
+
     @FXML
     private Button saveButton;
     @FXML
@@ -151,6 +256,48 @@ public class AdminController implements Initializable {
     @FXML
     private ImageView showSchemaImageView9;
     @FXML
+    private ImageView showSchemaImageView91;
+    @FXML
+    private ImageView showSchemaImageView92;
+    @FXML
+    private ImageView showSchemaImageView93;
+    @FXML
+    private ImageView showSchemaImageView96;
+    @FXML
+    private ImageView showSchemaImageView97;
+    @FXML
+    private ImageView showSchemaImageView98;
+    @FXML
+    private ImageView showSchemaImageView94;
+    @FXML
+    private ImageView showSchemaImageView95;
+    @FXML
+    private ImageView showSchemaImageView99;
+    @FXML
+    private ImageView showSchemaImageView910;
+    @FXML
+    private ImageView showSchemaImageView911;
+    @FXML
+    private ImageView showSchemaImageView912;
+    @FXML
+    private ImageView showSchemaImageView913;
+    @FXML
+    private ImageView showSchemaImageView914;
+    @FXML
+    private ImageView showSchemaImageView915;
+    @FXML
+    private ImageView showSchemaImageView916;
+    @FXML
+    private ImageView showSchemaImageView917;
+    @FXML
+    private ImageView showSchemaImageView918;
+    @FXML
+    private ImageView showSchemaImageView919;
+    @FXML
+    private ImageView showSchemaImageView920;
+    @FXML
+    private ImageView showSchemaImageView921;
+    @FXML
     private Pane showSchemaPane;
     @FXML
     private Button deleteSchemaButton;
@@ -172,6 +319,8 @@ public class AdminController implements Initializable {
     @FXML
     private TextArea diaryText;
 
+
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -185,6 +334,38 @@ public class AdminController implements Initializable {
         Image img8 = new Image(new File("8.png").toURI().toString());
         Image img9 = new Image(new File("9.png").toURI().toString());
         Image img10 = new Image(new File("10.png").toURI().toString());
+        Image img61 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img71 = new Image(new File("Aftensmad.png").toURI().toString());
+        Image img81 = new Image(new File("Børste tænder.png").toURI().toString());
+        Image img91 = new Image(new File("I seng.png").toURI().toString());
+        Image img1901 = new Image(new File("Sport.png").toURI().toString());
+        Image img1801 = new Image(new File("Sport.png").toURI().toString());
+        Image img1701 = new Image(new File("Sport.png").toURI().toString());
+        Image img1601 = new Image(new File("Sport.png").toURI().toString());
+        Image img1011 = new Image(new File("Sport.png").toURI().toString());
+        Image img1021 = new Image(new File("Undervisning.png").toURI().toString());
+        Image img1031 = new Image(new File("Zoo udflugt.png").toURI().toString());
+        Image img1041 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img102 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img103 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img104 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img62 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img72 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img82 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img92 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img1012 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img1022 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img1032 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img1042 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img63 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img73 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img83 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img93 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img1013 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img1023 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img1033 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        Image img1043 = new Image(new File("Stå op om morgen.png").toURI().toString());
+        
         imageView1.setImage(img1);
         imageView2.setImage(img2);
         imageView3.setImage(img3);
@@ -195,6 +376,38 @@ public class AdminController implements Initializable {
         imageView8.setImage(img8);
         imageView9.setImage(img9);
         imageView10.setImage(img10);
+        imageView61.setImage(img61);
+        imageView71.setImage(img71);
+        imageView81.setImage(img81);
+        imageView91.setImage(img91);
+        imageView1901.setImage(img1901);
+        imageView1801.setImage(img1801);
+        imageView1701.setImage(img1701);
+        imageView1601.setImage(img1601);
+        imageView1011.setImage(img1011);
+        imageView1021.setImage(img1021);
+        imageView1031.setImage(img1031);
+        imageView1041.setImage(img1041);
+        imageView102.setImage(img102);
+        imageView103.setImage(img103);
+        imageView104.setImage(img104);
+        imageView62.setImage(img62);
+        imageView72.setImage(img72);
+        imageView82.setImage(img82);
+        imageView92.setImage(img92);
+        imageView1012.setImage(img1012);
+        imageView1022.setImage(img1022);
+        imageView1032.setImage(img1032);
+        imageView1042.setImage(img1042);
+        imageView63.setImage(img63);
+        imageView73.setImage(img73);
+        imageView83.setImage(img83);
+        imageView93.setImage(img93);
+        imageView1013.setImage(img1013);
+        imageView1023.setImage(img1023);
+        imageView1033.setImage(img1033);
+        imageView1043.setImage(img1043);
+        
 
         ObservableList<String> list = FXCollections.observableArrayList();
 
@@ -330,6 +543,28 @@ public class AdminController implements Initializable {
         gridPaneImageView7.setImage(null);
         gridPaneImageView8.setImage(null);
         gridPaneImageView9.setImage(null);
+        gridPaneImageView11.setImage(null);
+        gridPaneImageView12.setImage(null);
+        gridPaneImageView13.setImage(null);
+        gridPaneImageView14.setImage(null);
+        gridPaneImageView15.setImage(null);
+        gridPaneImageView16.setImage(null);
+        gridPaneImageView17.setImage(null);
+        gridPaneImageView18.setImage(null);
+        gridPaneImageView19.setImage(null);
+        gridPaneImageView110.setImage(null);
+        gridPaneImageView111.setImage(null);
+        gridPaneImageView112.setImage(null);
+        gridPaneImageView113.setImage(null);
+        gridPaneImageView114.setImage(null);
+        gridPaneImageView115.setImage(null);
+        gridPaneImageView116.setImage(null);
+        gridPaneImageView117.setImage(null);
+        gridPaneImageView118.setImage(null);
+        gridPaneImageView119.setImage(null);
+        gridPaneImageView120.setImage(null);
+        gridPaneImageView121.setImage(null);
+        
 
     }
 
@@ -423,8 +658,195 @@ public class AdminController implements Initializable {
             cb.putImage(imageView10.getImage());
             db.setContent(cb);
             event.consume();
+        } else if (event.getSource() == imageView61) {
+            Dragboard db = imageView61.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView61.getImage());
+            db.setContent(cb);
+            event.consume();
+            
+        } else if (event.getSource() == imageView71) {
+            Dragboard db = imageView71.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView71.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView81) {
+            Dragboard db = imageView81.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView81.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView91) {
+            Dragboard db = imageView91.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView91.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1011) {
+            Dragboard db = imageView1011.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1011.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1901) {
+            Dragboard db = imageView1901.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1901.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1801) {
+            Dragboard db = imageView1801.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1801.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1701) {
+            Dragboard db = imageView1701.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1701.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1601) {
+            Dragboard db = imageView1601.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1601.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1021) {
+            Dragboard db = imageView1021.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1021.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1031) {
+            Dragboard db = imageView1031.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1031.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1041) {
+            Dragboard db = imageView1041.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1041.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView102) {
+            Dragboard db = imageView103.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView104.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView103) {
+            Dragboard db = imageView10.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView10.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView104) {
+            Dragboard db = imageView10.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView10.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView62) {
+            Dragboard db = imageView62.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView62.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView72) {
+            Dragboard db = imageView73.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView73.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView82) {
+            Dragboard db = imageView82.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView82.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView92) {
+            Dragboard db = imageView92.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView92.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1012) {
+            Dragboard db = imageView1012.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1012.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1022) {
+            Dragboard db = imageView1022.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1022.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1032) {
+            Dragboard db = imageView1032.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1032.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1042) {
+            Dragboard db = imageView1042.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1042.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView63) {
+            Dragboard db = imageView63.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView63.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView73) {
+            Dragboard db = imageView73.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView73.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView83) {
+            Dragboard db = imageView83.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView83.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView93) {
+            Dragboard db = imageView93.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView93.getImage());
+            db.setContent(cb);
+            event.consume(); 
+        } else if (event.getSource() == imageView1013) {
+            Dragboard db = imageView103.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView103.getImage());
+            db.setContent(cb);
+            event.consume();
+       
+        } else if (event.getSource() == imageView1023) {
+            Dragboard db = imageView1023.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1023.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1033) {
+            Dragboard db = imageView1033.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1033.getImage());
+            db.setContent(cb);
+            event.consume();
+        } else if (event.getSource() == imageView1043) {
+            Dragboard db = imageView1043.startDragAndDrop(TransferMode.ANY);
+            ClipboardContent cb = new ClipboardContent();
+            cb.putImage(imageView1043.getImage());
+            db.setContent(cb);
+            event.consume();
         }
-
     }
 
     @FXML
@@ -456,7 +878,71 @@ public class AdminController implements Initializable {
         } else if (event.getSource() == gridPaneImageView9) {
             Image img = event.getDragboard().getImage();
             gridPaneImageView9.setImage(img);
+        } else if (event.getSource() == gridPaneImageView11) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView11.setImage(img);
+        } else if (event.getSource() == gridPaneImageView12) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView12.setImage(img);
+        } else if (event.getSource() == gridPaneImageView13) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView13.setImage(img);
+        } else if (event.getSource() == gridPaneImageView14) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView14.setImage(img);
+        } else if (event.getSource() == gridPaneImageView15) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView15.setImage(img);
+        } else if (event.getSource() == gridPaneImageView16) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView16.setImage(img);
+        } else if (event.getSource() == gridPaneImageView17) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView17.setImage(img);
+         }else if (event.getSource() == gridPaneImageView18) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView18.setImage(img);
+        } else if (event.getSource() == gridPaneImageView19) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView19.setImage(img);
+        } else if (event.getSource() == gridPaneImageView110) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView110.setImage(img);
+        } else if (event.getSource() == gridPaneImageView111) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView111.setImage(img);
+        } else if (event.getSource() == gridPaneImageView112) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView112.setImage(img);
+        } else if (event.getSource() == gridPaneImageView113) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView113.setImage(img);
+        } else if (event.getSource() == gridPaneImageView114) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView114.setImage(img);
+        } else if (event.getSource() == gridPaneImageView115) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView115.setImage(img);
+        } else if (event.getSource() == gridPaneImageView116) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView116.setImage(img);
+        } else if (event.getSource() == gridPaneImageView117) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView117.setImage(img);
+        } else if (event.getSource() == gridPaneImageView118) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView118.setImage(img);
+        } else if (event.getSource() == gridPaneImageView119) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView119.setImage(img);
+        } else if (event.getSource() == gridPaneImageView120) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView120.setImage(img);
+        } else if (event.getSource() == gridPaneImageView121) {
+            Image img = event.getDragboard().getImage();
+            gridPaneImageView121.setImage(img);
         }
+        
     }
 
     @FXML
@@ -502,6 +988,28 @@ public class AdminController implements Initializable {
         Image img7 = gridPaneImageView7.getImage();
         Image img8 = gridPaneImageView8.getImage();
         Image img9 = gridPaneImageView9.getImage();
+        Image img11 = gridPaneImageView11.getImage();
+        Image img12 = gridPaneImageView12.getImage();
+        Image img13 = gridPaneImageView13.getImage();
+        Image img14 = gridPaneImageView14.getImage();
+        Image img15 = gridPaneImageView15.getImage();
+        Image img16 = gridPaneImageView16.getImage();
+        Image img17 = gridPaneImageView17.getImage();
+        Image img18 = gridPaneImageView18.getImage();
+        Image img19 = gridPaneImageView19.getImage();
+        Image img110 = gridPaneImageView110.getImage();
+        Image img111 = gridPaneImageView111.getImage();
+        Image img112 = gridPaneImageView112.getImage();
+        Image img113 = gridPaneImageView113.getImage();
+        Image img114 = gridPaneImageView114.getImage();
+        Image img115 = gridPaneImageView115.getImage();
+        Image img116 = gridPaneImageView116.getImage();
+        Image img117 = gridPaneImageView117.getImage();
+        Image img118 = gridPaneImageView118.getImage();
+        Image img119 = gridPaneImageView119.getImage();
+        Image img120 = gridPaneImageView120.getImage();
+        Image img121 = gridPaneImageView121.getImage();
+        
         showSchemaImageView1.setImage(img1);
         showSchemaImageView2.setImage(img2);
         showSchemaImageView3.setImage(img3);
@@ -511,6 +1019,28 @@ public class AdminController implements Initializable {
         showSchemaImageView7.setImage(img7);
         showSchemaImageView8.setImage(img8);
         showSchemaImageView9.setImage(img9);
+        showSchemaImageView91.setImage(img11);
+        showSchemaImageView92.setImage(img12);
+        showSchemaImageView93.setImage(img13);
+        showSchemaImageView94.setImage(img14);
+        showSchemaImageView95.setImage(img15);
+        showSchemaImageView96.setImage(img16);
+        showSchemaImageView97.setImage(img17);
+        showSchemaImageView98.setImage(img18);
+        showSchemaImageView99.setImage(img19);
+        showSchemaImageView910.setImage(img110);
+        showSchemaImageView911.setImage(img111);
+        showSchemaImageView912.setImage(img112);
+        showSchemaImageView913.setImage(img113);
+        showSchemaImageView914.setImage(img114);
+        showSchemaImageView915.setImage(img115);
+        showSchemaImageView916.setImage(img116);
+        showSchemaImageView917.setImage(img117);
+        showSchemaImageView918.setImage(img118);
+        showSchemaImageView919.setImage(img119);
+        showSchemaImageView920.setImage(img120);
+        showSchemaImageView921.setImage(img121);
+        
     }
 
     @FXML
@@ -622,6 +1152,27 @@ public class AdminController implements Initializable {
         showSchemaImageView7.setImage(null);
         showSchemaImageView8.setImage(null);
         showSchemaImageView9.setImage(null);
+        showSchemaImageView91.setImage(null);
+        showSchemaImageView92.setImage(null);
+        showSchemaImageView93.setImage(null);
+        showSchemaImageView94.setImage(null);
+        showSchemaImageView95.setImage(null);
+        showSchemaImageView96.setImage(null);
+        showSchemaImageView97.setImage(null);
+        showSchemaImageView98.setImage(null);
+        showSchemaImageView99.setImage(null);
+        showSchemaImageView910.setImage(null);
+        showSchemaImageView911.setImage(null);
+        showSchemaImageView912.setImage(null);
+        showSchemaImageView913.setImage(null);
+        showSchemaImageView914.setImage(null);
+        showSchemaImageView915.setImage(null);
+        showSchemaImageView916.setImage(null);
+        showSchemaImageView917.setImage(null);
+        showSchemaImageView918.setImage(null);
+        showSchemaImageView919.setImage(null);
+        showSchemaImageView920.setImage(null);
+        showSchemaImageView921.setImage(null);
     }
 
     @FXML
