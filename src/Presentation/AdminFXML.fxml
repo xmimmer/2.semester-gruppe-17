@@ -22,7 +22,10 @@
             <TextField fx:id="usernameField" layoutX="75.0" layoutY="138.0" />
             <PasswordField fx:id="passwordField" layoutX="76.0" layoutY="180.0" />
             <Button fx:id="loginButton" defaultButton="true" layoutX="122.0" layoutY="226.0" mnemonicParsing="false" onAction="#loginButtonHandler" text="Log ind" />
-            <Label fx:id="checkLabel" layoutX="43.0" layoutY="261.0" prefHeight="17.0" prefWidth="214.0" />
+            <Label fx:id="checkLabel" layoutX="5.0" layoutY="261.0" prefHeight="23.0" prefWidth="291.0" textFill="#e40b0b">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
             <Label layoutX="120.0" layoutY="119.0" text="Brugernavn" />
             <Label layoutX="126.0" layoutY="163.0" text="Kodeord" />
             <Label layoutX="97.0" layoutY="59.0" text="Aktivi-tek">
@@ -80,13 +83,13 @@
             </Label>
             <TextField fx:id="cprTextField" editable="false" layoutX="102.0" layoutY="208.0" prefHeight="25.0" prefWidth="149.0" />
             <Button fx:id="logoutButton" layoutX="662.0" layoutY="14.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
-            <Button fx:id="schemaButton" layoutX="170.0" layoutY="366.0" mnemonicParsing="false" onAction="#schemaButtonHandler" prefHeight="31.0" prefWidth="86.0" text="Skemaer" />
-            <Button fx:id="saveDiaryButton" layoutX="240.0" layoutY="350.0" mnemonicParsing="false" onAction="#saveDiaryButtonAction" prefWidth="60.0" text="Gem" visible="false" />
+            <Button fx:id="schemaButton" layoutX="107.0" layoutY="457.0" mnemonicParsing="false" onAction="#schemaButtonHandler" prefHeight="31.0" prefWidth="86.0" text="Skemaer" />
+            <Button fx:id="saveDiaryButton" layoutX="250.0" layoutY="350.0" mnemonicParsing="false" onAction="#saveDiaryButtonAction" prefWidth="60.0" text="Gem" visible="false" />
             <Button fx:id="clearDiaryButton" layoutX="648.0" layoutY="441.0" mnemonicParsing="false" onAction="#clearDiaryButtonAction" prefWidth="60.0" text="Ryd" />
             <Button fx:id="updateDiaryButton" layoutX="428.0" layoutY="441.0" mnemonicParsing="false" onAction="#updateDiaryButtonAction" text="Opdater" />
-            <TextArea fx:id="diaryTextArea" layoutX="170.0" layoutY="240.0" prefHeight="100.0" prefWidth="200.0" visible="false" />
-            <Button fx:id="writeNoteButton" layoutX="170.0" layoutY="296.0" mnemonicParsing="false" onAction="#writeNoteButtonHandler" text="Skriv note" />
-            <Button fx:id="closeNoteButton" layoutX="90.0" layoutY="280.0" mnemonicParsing="false" onAction="#closeNoteButtonHandler" prefWidth="68.0" text="Luk" visible="false" />
+            <TextArea fx:id="diaryTextArea" layoutX="50.0" layoutY="300.0" prefHeight="100.0" prefWidth="200.0" visible="false" />
+            <Button fx:id="writeNoteButton" layoutX="107.0" layoutY="420.0" mnemonicParsing="false" onAction="#writeNoteButtonHandler" text="Skriv note" />
+            <Button fx:id="closeNoteButton" layoutX="250.0" layoutY="300.0" mnemonicParsing="false" onAction="#closeNoteButtonHandler" prefWidth="60.0" text="Luk" visible="false" />
             <TextArea fx:id="diaryText" editable="false" layoutX="421.0" layoutY="197.0" prefHeight="238.0" prefWidth="300.0" />
          </children>
       </Pane>
