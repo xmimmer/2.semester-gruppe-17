@@ -1195,7 +1195,7 @@ public class AdminController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + diaryTextArea.getText() + "' WHERE name = '" + valgtBorger + "'");
+            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + diaryText.getText() + diaryTextArea.getText() + "' WHERE name = '" + valgtBorger + "'");
 
             connection.close();
             resultSet.close();
@@ -1210,6 +1210,7 @@ public class AdminController implements Initializable {
     @FXML
     private void clearDiaryButtonAction(ActionEvent event) {
         String valgtBorger = borgerListView.getSelectionModel().getSelectedItem();
+        diaryText.setText("");
 
         String databaseURL = "jdbc:postgresql://balarama.db.elephantsql.com:5432/cbsbnvky";
         String username = "cbsbnvky";
@@ -1226,7 +1227,7 @@ public class AdminController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + "Ingen notater." + "' WHERE name = '" + valgtBorger + "'");
+            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + "" + "' WHERE name = '" + valgtBorger + "'");
 
             connection.close();
             resultSet.close();
@@ -1260,9 +1261,7 @@ public class AdminController implements Initializable {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE CPR = '" + cprTextField.getText() + "'");
             while (resultSet.next()) {
-                
-                diaryText.setText(diaryText.getText() + resultSet.getString("diary"));
-
+                diaryText.setText(resultSet.getString("diary") + "\n");
             }
 
             connection.close();
