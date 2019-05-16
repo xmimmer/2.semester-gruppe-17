@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.StartFXMLController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ListView fx:id="citizenListView" layoutX="137.0" layoutY="79.0" prefHeight="268.0" prefWidth="326.0" />
+            <Button fx:id="chooseCitizenButton" layoutX="69.0" layoutY="189.0" mnemonicParsing="false" onAction="#chooseCitizenButtonHandler" prefHeight="47.0" prefWidth="58.0" text="Vælg" />
+            <Label layoutX="228.0" layoutY="27.0" text="Vælg borger">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Button fx:id="logoutButton" layoutX="534.0" layoutY="15.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud" />
+            <Label fx:id="checkLabel" layoutX="214.0" layoutY="358.0" prefHeight="17.0" prefWidth="173.0" />
+            <Button fx:id="createCitizenButton" layoutX="250.0" layoutY="354.0" mnemonicParsing="false" onAction="#createCitizenButtonHandler" text="Opret ny borger" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
