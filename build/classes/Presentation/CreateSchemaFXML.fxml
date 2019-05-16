@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Logic.CreateSchemaFXMLController">
+   <children>
+      <Pane fx:id="createSchemaGridPane" prefHeight="720.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox layoutX="980.0" layoutY="23.0" prefHeight="200.0" prefWidth="75.0">
+               <children>
+                  <ImageView fx:id="imageView1" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView2" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView3" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView4" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView5" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView6" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView7" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView8" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView9" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox layoutX="1080.0" layoutY="23.0" prefHeight="200.0" prefWidth="75.0">
+               <children>
+                  <ImageView fx:id="imageView10" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView11" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView12" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView13" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView14" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView15" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView16" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView17" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView18" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <VBox layoutX="1180.0" layoutY="23.0" prefHeight="200.0" prefWidth="75.0">
+               <children>
+                  <ImageView fx:id="imageView19" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                   
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="imageView20" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView21" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView22" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView23" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView24" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView25" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView26" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imageView27" fitHeight="75.0" fitWidth="75.0" onDragDetected="#handleDragDetected" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </VBox>
+            <GridPane gridLinesVisible="true" layoutX="82.0" layoutY="75.0" prefHeight="570.0" prefWidth="873.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <ImageView fx:id="gridPaneImageView1" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="gridPaneImageView2" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                  <ImageView fx:id="gridPaneImageView3" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" />
+                  <ImageView fx:id="gridPaneImageView4" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" />
+                  <ImageView fx:id="gridPaneImageView5" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" />
+                  <ImageView fx:id="gridPaneImageView6" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
+                  <ImageView fx:id="gridPaneImageView7" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ImageView fx:id="gridPaneImageView8" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ImageView fx:id="gridPaneImageView9" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <ImageView fx:id="gridPaneImageView10" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <ImageView fx:id="gridPaneImageView11" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" />
+                  <ImageView fx:id="gridPaneImageView12" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ImageView fx:id="gridPaneImageView13" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <ImageView fx:id="gridPaneImageView14" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <ImageView fx:id="gridPaneImageView15" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <ImageView fx:id="gridPaneImageView16" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="3" />
+                  <ImageView fx:id="gridPaneImageView17" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ImageView fx:id="gridPaneImageView18" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <ImageView fx:id="gridPaneImageView19" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <ImageView fx:id="gridPaneImageView20" fitHeight="143.0" fitWidth="176.0" onDragDropped="#handleDropDetected" onDragOver="#handleDragOver" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <Button fx:id="saveSchemaButton" layoutX="453.0" layoutY="654.0" mnemonicParsing="false" onAction="#saveSchemaButtonHandler" text="Gem skema">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="backButton" layoutX="14.0" layoutY="676.0" mnemonicParsing="false" onAction="#backButtonHandler" text="Tilbage" />
+            <Button fx:id="logoutButton" layoutX="487.0" layoutY="23.0" mnemonicParsing="false" onAction="#logoutButtonHandler" text="Log ud">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
