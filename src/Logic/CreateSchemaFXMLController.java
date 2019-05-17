@@ -166,8 +166,8 @@ public class CreateSchemaFXMLController implements Initializable {
         Image img8 = new Image(new File("8.png").toURI().toString());
         Image img9 = new Image(new File("9.png").toURI().toString());
         Image img10 = new Image(new File("10.png").toURI().toString());
-        Image img11 = new Image(new File("Stå op om morgen.png").toURI().toString());
-        Image img12 = new Image(new File("Aftensmad.png").toURI().toString());
+        Image img11 = new Image(new File("11.png").toURI().toString());
+        Image img12 = new Image(new File("12.png").toURI().toString());
         Image img13 = new Image(new File("Børste tænder.png").toURI().toString());
         Image img14 = new Image(new File("I seng.png").toURI().toString());
         Image img15 = new Image(new File("Sport.png").toURI().toString());
@@ -183,7 +183,7 @@ public class CreateSchemaFXMLController implements Initializable {
         Image img25 = new Image(new File("gang træning.png").toURI().toString());
         Image img26 = new Image(new File("gå tur.png").toURI().toString());
         Image img27 = new Image(new File("kirke.png").toURI().toString());
-
+ 
         imageView1.setImage(img1);
         imageView2.setImage(img2);
         imageView3.setImage(img3);

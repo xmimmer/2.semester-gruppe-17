@@ -1,5 +1,6 @@
 package Logic;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -39,7 +40,6 @@ import javafx.stage.Stage;
 
 public class AdminController implements Initializable {
     
-
 
     @FXML
     private ListView<String> borgerListView;
@@ -835,6 +835,7 @@ public class AdminController implements Initializable {
         } else if (event.getSource() == gridPaneImageView10) {
             Image img = event.getDragboard().getImage();
             gridPaneImageView10.setImage(img);
+
         } else if (event.getSource() == gridPaneImageView12) {
             Image img = event.getDragboard().getImage();
             gridPaneImageView12.setImage(img);

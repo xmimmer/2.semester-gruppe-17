@@ -42,6 +42,10 @@ public class StartFXMLController implements Initializable {
     private Button logoutButton;
     @FXML
     private Label checkLabel;
+    @FXML
+    private Button deleteButton;
+    @FXML
+    private Button createCitizenButton;
 
     //Class instances
     DatabaseManager dm = new DatabaseManager();
@@ -52,8 +56,6 @@ public class StartFXMLController implements Initializable {
     public static String getCitizen() {
         return citizen;
     }
-    @FXML
-    private Button createCitizenButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -71,7 +73,7 @@ public class StartFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT name FROM citizens WHERE name != 'admin'");
+            ResultSet resultSet = statement.executeQuery("SELECT citizen_id,name FROM citizens WHERE name != 'admin'");
 
             while (resultSet.next()) {
                 list.add(resultSet.getString("name"));
@@ -115,7 +117,7 @@ public class StartFXMLController implements Initializable {
 
     @FXML
     private void logoutButtonHandler(ActionEvent event) throws IOException {
-        
+
         LoginFXMLController.isAdmin = false;
         LoginFXMLController.isCitizen = false;
 
@@ -132,10 +134,103 @@ public class StartFXMLController implements Initializable {
     }
 
     @FXML
-    private void createCitizenButtonHandler(ActionEvent event) {
-        
-        
-        
+    private void createCitizenButtonHandler(ActionEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("/Presentation/CreateCitizenFXML.fxml"));
+
+        Scene scene = new Scene(root);
+
+        //This line gets the Stage information
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
+
+    }
+
+    @FXML
+    private void deleteButtonHandler(ActionEvent event) throws IOException {
+        try {
+            String chosenCitizen = citizenListView.getSelectionModel().getSelectedItem();
+            if (chosenCitizen.trim().length() != 0) {
+                try {
+                    Class.forName("org.postgresql.Driver");
+                } catch (ClassNotFoundException ex) {
+                    System.out.println("Fail to load the jdbc driver.");
+                }
+
+                try {
+                    Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
+                    System.out.println("Connected to second database.!");
+
+                    Statement statement = connection.createStatement();
+                    ResultSet resultSet = statement.executeQuery("DELETE FROM citizens WHERE name = '" + chosenCitizen + "'");
+
+                    connection.close();
+                    resultSet.close();
+
+                } catch (java.sql.SQLException ex) {
+                    System.out.println(ex.getMessage());
+
+                }
+                try {
+                    Class.forName("org.postgresql.Driver");
+                } catch (ClassNotFoundException ex) {
+                    System.out.println("Fail to load the jdbc driver.");
+                }
+
+                try {
+                    Connection connection = DriverManager.getConnection(dm.getSecondDatabaseURL(), dm.getSecondDatabaseUsername(), dm.getSecondDatabasePassword());
+                    System.out.println("Connected!");
+
+                    Statement statement = connection.createStatement();
+                    ResultSet resultSet = statement.executeQuery("DELETE FROM anotherdatabase WHERE name = '" + chosenCitizen + "'");
+
+                    connection.close();
+                    resultSet.close();
+
+                } catch (java.sql.SQLException ex) {
+                    System.out.println(ex.getMessage());
+
+                }
+                try {
+                    Class.forName("org.postgresql.Driver");
+                } catch (ClassNotFoundException ex) {
+                    System.out.println("Fail to load the jdbc driver.");
+                }
+
+                try {
+                    Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
+                    System.out.println("Connected!");
+
+                    Statement statement = connection.createStatement();
+                    ResultSet resultSet = statement.executeQuery("DELETE FROM relatives WHERE name = '" + chosenCitizen + "'");
+
+                    connection.close();
+                    resultSet.close();
+
+                } catch (java.sql.SQLException ex) {
+                    System.out.println(ex.getMessage());
+
+                }
+
+                Parent root = FXMLLoader.load(getClass().getResource("/Presentation/StartFXML.fxml"));
+
+                Scene scene = new Scene(root);
+
+                //This line gets the Stage information
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(scene);
+                window.show();
+
+            }
+
+        } catch (NullPointerException e) {
+
+            checkLabel.setText("Ingen borger valgt.");
+
+        }
     }
 
 }

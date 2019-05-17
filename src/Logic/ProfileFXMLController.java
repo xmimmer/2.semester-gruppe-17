@@ -56,6 +56,10 @@ public class ProfileFXMLController implements Initializable {
     private Button clearDiaryButton;
     @FXML
     private TextArea diaryText;
+    @FXML
+    private Button backButton;
+    @FXML
+    private Label testLabel;
 
     public static String citizen;
 
@@ -65,16 +69,28 @@ public class ProfileFXMLController implements Initializable {
 
     //Class instances
     DatabaseManager dm = new DatabaseManager();
+    private TextArea writePrivateNoteTextArea;
     @FXML
-    private Button backButton;
+    private Button savePrivateDiaryButton;
+    private Button updatePrivateDiaryButton;
+    private Button clearPrivateDiaryButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Connect();
+
         if (LoginFXMLController.isCitizen == true) {
             writeNoteButton.setVisible(false);
-            clearDiaryButton.setVisible(false);
             backButton.setVisible(false);
+            clearDiaryButton.setVisible(false);
+
+        }
+        if (LoginFXMLController.isRelative == true) {
+            writeNoteButton.setVisible(false);
+            backButton.setVisible(false);
+            clearDiaryButton.setVisible(false);
+            schemaButton.setVisible(false);
+            depTextField.setText("Spørg hos kommunen.");
         }
 
     }
@@ -133,6 +149,33 @@ public class ProfileFXMLController implements Initializable {
             } catch (java.sql.SQLException ex) {
                 System.out.println(ex.getMessage());
             }
+        } else if (LoginFXMLController.isRelative == true) {
+            try {
+                Class.forName("org.postgresql.Driver");
+            } catch (ClassNotFoundException ex) {
+                System.out.println("Fail to load the jdbc driver.");
+            }
+
+            try {
+                Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
+                System.out.println("Connected!");
+
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT name,age,CPR FROM citizens WHERE CPR ='" + LoginFXMLController.getValidateCPR() + "'");
+
+                while (resultSet.next()) {
+
+                    nameLabel.setText(resultSet.getString("name"));
+                    ageTextField.setText(resultSet.getString("age"));
+                    cprTextField.setText(resultSet.getString("CPR"));
+                    testLabel.setText("Logget ind som pårørende for: " + resultSet.getString("name"));
+
+                    connection.close();
+                    resultSet.close();
+                }
+            } catch (java.sql.SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
 
         }
 
@@ -170,19 +213,11 @@ public class ProfileFXMLController implements Initializable {
     }
 
     @FXML
-    private void writeNoteButtonHandler(ActionEvent event) {
-
-        writeNoteTextArea.setVisible(true);
-        writeNoteButton.setVisible(false);
-        closeButton.setVisible(true);
-        saveDiaryButton.setVisible(true);
-
-    }
-
-    @FXML
     private void closeButtonHandler(ActionEvent event) {
         writeNoteButton.setVisible(true);
+
         writeNoteTextArea.setVisible(false);
+
         closeButton.setVisible(false);
         saveDiaryButton.setVisible(false);
 
@@ -286,6 +321,16 @@ public class ProfileFXMLController implements Initializable {
 
         window.setScene(scene);
         window.show();
+
+    }
+
+    @FXML
+    private void writeNoteButtonHandler(ActionEvent event) {
+
+        writeNoteTextArea.setVisible(true);
+        writeNoteButton.setVisible(false);
+        closeButton.setVisible(true);
+        saveDiaryButton.setVisible(true);
 
     }
 

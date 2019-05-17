@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Mimmer
+ * @author Mimmer 
  */
 
 public class Main extends Application {
@@ -21,7 +21,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
-        stage.show();
+        stage.show(); 
 
     }
 

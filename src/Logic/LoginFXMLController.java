@@ -33,7 +33,6 @@ import javafx.stage.Stage;
  */
 public class LoginFXMLController implements Initializable {
 
-
     @FXML
     private TextField usernameField;
     @FXML
@@ -42,30 +41,33 @@ public class LoginFXMLController implements Initializable {
     private Button loginButton;
     @FXML
     private Label checkLabel;
-    
+
     public static String validateCPR;
-    
+
     //Static variables to determine login-status in other controllers.
-    public static boolean isAdmin = false; 
-    public static boolean isCitizen = false; 
-    public static boolean isRelative = false; 
-    
+    public static boolean isAdmin = false;
+    public static boolean isCitizen = false;
+    public static boolean isRelative = false;
+
     // Getters & setters
     public static String getValidateCPR() {
         return validateCPR;
     }
-    public static boolean getAdminStatus() { 
-        return isAdmin; 
+
+    public static boolean getAdminStatus() {
+        return isAdmin;
     }
-    public static boolean getCitizenStatus() { 
-        return isCitizen; 
+
+    public static boolean getCitizenStatus() {
+        return isCitizen;
     }
-    public static boolean getRelativeStatus() { 
-        return isRelative; 
+
+    public static boolean getRelativeStatus() {
+        return isRelative;
     }
-    
+
     //Class instances
-    DatabaseManager dm = new DatabaseManager(); 
+    DatabaseManager dm = new DatabaseManager();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -81,7 +83,8 @@ public class LoginFXMLController implements Initializable {
         String adminUsername;
         String adminPassword;
 
-
+        String relativeUsername;
+        String relativePassword;
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -94,19 +97,19 @@ public class LoginFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM citizens WHERE name != 'admin'");
+            ResultSet resultSet = statement.executeQuery("SELECT name,username,password,CPR FROM citizens WHERE name != 'admin'");
 
             while (resultSet.next()) {
 
                 citizenUsername = resultSet.getString("username");
                 citizenPassword = resultSet.getString("password");
-                
+
                 //Variable to detect which user is logged in.
                 validateCPR = resultSet.getString("CPR");
 
                 if (usernameField.getText().equals(citizenUsername) && passwordField.getText().equals(citizenPassword)) {
 
-                    isCitizen = true; 
+                    isCitizen = true;
                     Parent root = FXMLLoader.load(getClass().getResource("/Presentation/ProfileFXML.fxml"));
 
                     Scene scene = new Scene(root);
@@ -141,16 +144,16 @@ public class LoginFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM citizens WHERE name = 'admin'");
+            ResultSet resultSet = statement.executeQuery("SELECT name,username,password FROM citizens WHERE name = 'admin'");
 
             while (resultSet.next()) {
-           
+
                 adminUsername = resultSet.getString("username");
                 adminPassword = resultSet.getString("password");
 
                 if (usernameField.getText().equals(adminUsername) && passwordField.getText().equals(adminPassword)) {
 
-                    isAdmin = true; 
+                    isAdmin = true;
                     Parent game = FXMLLoader.load(getClass().getResource("/Presentation/StartFXML.fxml"));
                     Scene gameScene = new Scene(game);
 
@@ -158,6 +161,53 @@ public class LoginFXMLController implements Initializable {
                     Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
                     window.setScene(gameScene);
+                    window.show();
+
+                    connection.close();
+                    resultSet.close();
+
+                } else {
+                    checkLabel.setText("Forkert kodeord/brugernavn.");
+                }
+
+            }
+
+        } catch (java.sql.SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Fail to load the jdbc driver.");
+        }
+
+        try {
+            Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
+            System.out.println("Connected!");
+
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT CPR,username,password FROM relatives");
+
+            while (resultSet.next()) {
+
+                relativeUsername = resultSet.getString("username");
+                relativePassword = resultSet.getString("password");
+
+                //Variable to detect which user is logged in.
+                validateCPR = resultSet.getString("CPR");
+
+                if (usernameField.getText().equals(relativeUsername) && passwordField.getText().equals(relativePassword)) {
+
+                    isRelative = true;
+                    Parent root = FXMLLoader.load(getClass().getResource("/Presentation/ProfileFXML.fxml"));
+
+                    Scene scene = new Scene(root);
+
+                    //This line gets the Stage information
+                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                    window.setScene(scene);
                     window.show();
 
                     connection.close();
