@@ -13,16 +13,19 @@
       <Pane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <TextField fx:id="usernameField" layoutX="126.0" layoutY="123.0" />
-            <PasswordField fx:id="passwordField" layoutX="126.0" layoutY="163.0" />
-            <Button fx:id="loginButton" defaultButton="true" layoutX="171.0" layoutY="202.0" mnemonicParsing="false" onAction="#loginButtonHandler" text="Log ind" />
+            <PasswordField fx:id="passwordField" layoutX="126.0" layoutY="171.0" />
+            <Button fx:id="loginButton" defaultButton="true" layoutX="171.0" layoutY="210.0" mnemonicParsing="false" onAction="#loginButtonHandler" text="Log ind" />
             <Label layoutX="146.0" layoutY="56.0" text="Aktivi-tek">
                <font>
                   <Font size="25.0" />
                </font>
             </Label>
             <Label layoutX="169.0" layoutY="104.0" text="Brugernavn" />
-            <Label layoutX="177.0" layoutY="148.0" text="Kodeord" />
-            <Label fx:id="checkLabel" layoutX="113.0" layoutY="253.0" prefHeight="17.0" prefWidth="175.0" />
+            <Label layoutX="177.0" layoutY="152.0" text="Kodeord" />
+            <Label fx:id="checkLabel" layoutX="111.0" layoutY="251.0" prefHeight="17.0" prefWidth="237.0" textFill="#f52d2d">
+               <font>
+                  <Font size="15.0" />
+               </font></Label>
          </children>
       </Pane>
    </children>
