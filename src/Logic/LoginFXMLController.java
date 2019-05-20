@@ -41,6 +41,9 @@ public class LoginFXMLController implements Initializable {
     private Button loginButton;
     @FXML
     private Label checkLabel;
+    @FXML
+    private Button cancelButton;
+
 
     public static String validateCPR;
 
@@ -125,6 +128,9 @@ public class LoginFXMLController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
+                    
+                   
+                    
                 }
 
             }
@@ -168,6 +174,8 @@ public class LoginFXMLController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
+                    
+                    
                 }
 
             }
@@ -215,6 +223,7 @@ public class LoginFXMLController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
+                 
                 }
 
             }
@@ -225,4 +234,14 @@ public class LoginFXMLController implements Initializable {
         }
 
     }
+    
+    @FXML
+    
+    public void cancelButtonHandler(ActionEvent event){
+   
+       Stage stage = (Stage) cancelButton.getScene().getWindow();
+       stage.close();
+    
+    }
+
 }
