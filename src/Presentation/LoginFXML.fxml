@@ -14,7 +14,7 @@
          <children>
             <TextField fx:id="usernameField" layoutX="126.0" layoutY="123.0" />
             <PasswordField fx:id="passwordField" layoutX="126.0" layoutY="171.0" />
-            <Button fx:id="loginButton" defaultButton="true" layoutX="171.0" layoutY="210.0" mnemonicParsing="false" onAction="#loginButtonHandler" text="Log ind" />
+            <Button fx:id="loginButton" defaultButton="true" layoutX="137.0" layoutY="211.0" mnemonicParsing="false" onAction="#loginButtonHandler" text="Log ind" />
             <Label layoutX="146.0" layoutY="56.0" text="Aktivi-tek">
                <font>
                   <Font size="25.0" />
@@ -26,6 +26,7 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
+            <Button fx:id="cancelButton" layoutX="220.0" layoutY="211.0" mnemonicParsing="false" onAction="#cancelButtonHandler" text="Cancel" />
          </children>
       </Pane>
    </children>
