@@ -121,10 +121,10 @@ public class CreateCitizenFXMLController implements Initializable {
 
             try {
                 Connection connection = DriverManager.getConnection(dm.getSecondDatabaseURL(), dm.getSecondDatabaseUsername(), dm.getSecondDatabasePassword());
-                System.out.println("Connected to anotherdatabase!");
+                System.out.println("Connected to diary!");
 
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("INSERT INTO anotherdatabase (cpr,name) VALUES ('" + cprTextField.getText() + "',"
+                ResultSet resultSet = statement.executeQuery("INSERT INTO diary (cpr,name) VALUES ('" + cprTextField.getText() + "',"
                         + "'" + nameTextField.getText() + "')");
 
                 connection.close();

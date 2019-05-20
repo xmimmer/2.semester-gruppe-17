@@ -100,7 +100,7 @@ public class LoginFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT name,username,password,CPR FROM citizens WHERE name != 'admin'");
+            ResultSet resultSet = statement.executeQuery("SELECT name,username,password,CPR FROM citizens");
 
             while (resultSet.next()) {
 
@@ -150,7 +150,7 @@ public class LoginFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT name,username,password FROM citizens WHERE name = 'admin'");
+            ResultSet resultSet = statement.executeQuery("SELECT username,password FROM admin");
 
             while (resultSet.next()) {
 
