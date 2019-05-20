@@ -183,7 +183,7 @@ public class CreateSchemaFXMLController implements Initializable {
         Image img25 = new Image(new File("gang træning.png").toURI().toString());
         Image img26 = new Image(new File("gå tur.png").toURI().toString());
         Image img27 = new Image(new File("kirke.png").toURI().toString());
- 
+
         imageView1.setImage(img1);
         imageView2.setImage(img2);
         imageView3.setImage(img3);
@@ -493,7 +493,7 @@ public class CreateSchemaFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("UPDATE citizens SET img ='" + Arrays.toString(res) + "' WHERE name = '" + StartFXMLController.getCitizen() + "'");
+            ResultSet resultSet = statement.executeQuery("UPDATE citizens SET image ='" + res + "' WHERE name = '" + StartFXMLController.getCitizen() + "'");
             resultSet.close();
         } catch (SQLException ex) {
 
