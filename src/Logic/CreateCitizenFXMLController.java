@@ -76,14 +76,20 @@ public class CreateCitizenFXMLController implements Initializable {
                 Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
                 System.out.println("Connected to citizens!");
 
+                String passHWord;
+                passHWord = new EncryptClass().encryptString(passwordTextField.getText());
+                
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("INSERT INTO citizens (name,age,CPR,department,username,password) VALUES ('" + nameTextField.getText() + "',"
+                ResultSet resultSet = statement.executeQuery("INSERT INTO citizens (name,age,CPR,department,username,password) VALUES ('" 
+                        + nameTextField.getText() + "',"
                         + "'" + ageTextField.getText() + "',"
                         + "'" + cprTextField.getText() + "',"
                         + "'" + depTextField.getText() + "',"
                         + "'" + usernameTextField.getText() + "',"
-                        + "'" + passwordTextField.getText() + "')");
-
+                        + "'" + passHWord + "')");
+                 
+             
+                
                 connection.close();
                 resultSet.close();
 
@@ -121,10 +127,10 @@ public class CreateCitizenFXMLController implements Initializable {
 
             try {
                 Connection connection = DriverManager.getConnection(dm.getSecondDatabaseURL(), dm.getSecondDatabaseUsername(), dm.getSecondDatabasePassword());
-                System.out.println("Connected to anotherdatabase!");
+                System.out.println("Connected to diary!");
 
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("INSERT INTO anotherdatabase (cpr,name) VALUES ('" + cprTextField.getText() + "',"
+                ResultSet resultSet = statement.executeQuery("INSERT INTO diary (cpr,name) VALUES ('" + cprTextField.getText() + "',"
                         + "'" + nameTextField.getText() + "')");
 
                 connection.close();

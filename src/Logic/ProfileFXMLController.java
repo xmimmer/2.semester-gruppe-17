@@ -197,7 +197,7 @@ public class ProfileFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT diary FROM anotherdatabase WHERE CPR = '" + cprTextField.getText() + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT diary FROM diary WHERE CPR = '" + cprTextField.getText() + "'");
             while (resultSet.next()) {
                 diaryText.setText(resultSet.getString("diary") + "\n");
             }
@@ -237,7 +237,7 @@ public class ProfileFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + writeNoteTextArea.getText() + diaryText.getText() + "' WHERE name = '" + StartFXMLController.getCitizen() + "'");
+            ResultSet resultSet = statement.executeQuery("UPDATE diary SET diary = '" + diaryText.getText() + writeNoteTextArea.getText() + "' WHERE name = '" + StartFXMLController.getCitizen() + "'");
 
             connection.close();
             resultSet.close();

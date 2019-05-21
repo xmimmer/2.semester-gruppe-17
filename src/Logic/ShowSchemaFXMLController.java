@@ -63,7 +63,7 @@ public class ShowSchemaFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT img FROM citizens WHERE name ='" + StartFXMLController.getCitizen() + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT image FROM citizens WHERE name ='" + StartFXMLController.getCitizen() + "'");
             resultSet = statement.getResultSet();
             // bytes = resultSet.getBinaryStream("img");
             byte[] imgBytes;

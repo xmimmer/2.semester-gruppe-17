@@ -100,31 +100,33 @@ public class LoginFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT name,username,password,CPR FROM citizens WHERE name != 'admin'");
-            System.out.println("SELECT name,username,password,CPR FROM citizens WHERE name != 'admin'");
+            ResultSet resultSet = statement.executeQuery("SELECT name,username,password,CPR FROM citizens");
+            System.out.println("SELECT name,username,password,CPR FROM citizens");
+          
             while (resultSet.next()) {
 
                 citizenUsername = resultSet.getString("username");
                 citizenPassword = resultSet.getString("password");
-                System.out.println(citizenUsername);
-                System.out.println(citizenPassword);
+
                 //Variable to detect which user is logged in.
                 validateCPR = resultSet.getString("CPR");
                 
+            
                 
                 
-                String loginUserName ;
+                
+                //String loginUserName ;
                 String loginPassword ;
             
-                 loginUserName = new EncryptClass().encryptString(usernameField.getText());
+               //  loginUserName = new EncryptClass().encryptString(usernameField.getText());
                  loginPassword = new EncryptClass().encryptString(passwordField.getText());
                  
-                 
-                 
-                if (loginUserName.equals(citizenUsername) && loginPassword.equals(citizenPassword)) {
-                
+                 //System.out.println(loginPassword);
+                    
+            
+                 if (usernameField.getText().equals(citizenUsername) && loginPassword.equals(citizenPassword)) {
 
-              //  if (usernameField.getText().equals(citizenUsername) && passwordField.getText().equals(citizenPassword)) {
+            //  if (usernameField.getText().equals(citizenUsername) && passwordField.getText().equals(citizenPassword)) {
 
                     isCitizen = true;
                     Parent root = FXMLLoader.load(getClass().getResource("/Presentation/ProfileFXML.fxml"));
@@ -142,8 +144,7 @@ public class LoginFXMLController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
-                 
-                  
+                    
                    
                     
                 }
@@ -165,14 +166,12 @@ public class LoginFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT name,username,password FROM citizens WHERE name = 'admin'");
+            ResultSet resultSet = statement.executeQuery("SELECT username,password FROM admin");
 
             while (resultSet.next()) {
 
                 adminUsername = resultSet.getString("username");
                 adminPassword = resultSet.getString("password");
-                
-                
 
                 if (usernameField.getText().equals(adminUsername) && passwordField.getText().equals(adminPassword)) {
 
@@ -191,7 +190,6 @@ public class LoginFXMLController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
-                    
                     
                     
                 }
@@ -241,8 +239,6 @@ public class LoginFXMLController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
-                    usernameField.setText("");
-                    passwordField.setText("");
                  
                 }
 
