@@ -30,10 +30,8 @@ public class ProfileFXMLController implements Initializable {
 
     @FXML
     public TextField cprTextField;
-
     @FXML
     private Button updateDiaryButton;
-
     @FXML
     private Button logoutButton;
     @FXML
@@ -69,11 +67,6 @@ public class ProfileFXMLController implements Initializable {
 
     //Class instances
     DatabaseManager dm = new DatabaseManager();
-    private TextArea writePrivateNoteTextArea;
-    @FXML
-    private Button savePrivateDiaryButton;
-    private Button updatePrivateDiaryButton;
-    private Button clearPrivateDiaryButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -164,7 +157,7 @@ public class ProfileFXMLController implements Initializable {
                 ResultSet resultSet = statement.executeQuery("SELECT name,age,CPR FROM citizens WHERE CPR ='" + LoginFXMLController.getValidateCPR() + "'");
 
                 while (resultSet.next()) {
-
+                    
                     nameLabel.setText(resultSet.getString("name"));
                     ageTextField.setText(resultSet.getString("age"));
                     cprTextField.setText(resultSet.getString("CPR"));

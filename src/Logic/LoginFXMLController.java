@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Logic;
 
 import Data.DatabaseManager;
@@ -43,7 +38,6 @@ public class LoginFXMLController implements Initializable {
     private Label checkLabel;
     @FXML
     private Button cancelButton;
-
 
     public static String validateCPR;
 
@@ -101,34 +95,19 @@ public class LoginFXMLController implements Initializable {
 
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT name,username,password,CPR FROM citizens");
-            System.out.println("SELECT name,username,password,CPR FROM citizens");
-          
+
             while (resultSet.next()) {
 
                 citizenUsername = resultSet.getString("username");
                 citizenPassword = resultSet.getString("password");
 
-                //Variable to detect which user is logged in.
-                validateCPR = resultSet.getString("CPR");
-                
-            
-                
-                
-                
-                //String loginUserName ;
-                String loginPassword ;
-            
-               //  loginUserName = new EncryptClass().encryptString(usernameField.getText());
-                 loginPassword = new EncryptClass().encryptString(passwordField.getText());
-                 
-                 //System.out.println(loginPassword);
-                    
-            
-                 if (usernameField.getText().equals(citizenUsername) && loginPassword.equals(citizenPassword)) {
+                String loginPassword = new EncryptClass().encryptString(passwordField.getText());
 
-            //  if (usernameField.getText().equals(citizenUsername) && passwordField.getText().equals(citizenPassword)) {
-
+                if (usernameField.getText().equals(citizenUsername) && loginPassword.equals(citizenPassword)) {
+                    //Variable to detect which user is logged in.
+                    validateCPR = resultSet.getString("CPR");
                     isCitizen = true;
+                    
                     Parent root = FXMLLoader.load(getClass().getResource("/Presentation/ProfileFXML.fxml"));
 
                     Scene scene = new Scene(root);
@@ -144,9 +123,7 @@ public class LoginFXMLController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
-                    
-                   
-                    
+
                 }
 
             }
@@ -190,8 +167,7 @@ public class LoginFXMLController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
-                    
-                    
+
                 }
 
             }
@@ -218,12 +194,11 @@ public class LoginFXMLController implements Initializable {
                 relativeUsername = resultSet.getString("username");
                 relativePassword = resultSet.getString("password");
 
-                //Variable to detect which user is logged in.
-                validateCPR = resultSet.getString("CPR");
-
                 if (usernameField.getText().equals(relativeUsername) && passwordField.getText().equals(relativePassword)) {
-
+                    //Variable to detect which user is logged in.
+                    validateCPR = resultSet.getString("CPR");
                     isRelative = true;
+
                     Parent root = FXMLLoader.load(getClass().getResource("/Presentation/ProfileFXML.fxml"));
 
                     Scene scene = new Scene(root);
@@ -239,7 +214,7 @@ public class LoginFXMLController implements Initializable {
 
                 } else {
                     checkLabel.setText("Forkert kodeord/brugernavn.");
-                 
+
                 }
 
             }
@@ -250,14 +225,14 @@ public class LoginFXMLController implements Initializable {
         }
 
     }
-    
+
     @FXML
-    
-    public void cancelButtonHandler(ActionEvent event){
-   
-       Stage stage = (Stage) cancelButton.getScene().getWindow();
-       stage.close();
-    
+
+    public void cancelButtonHandler(ActionEvent event) {
+
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
+
     }
 
 }

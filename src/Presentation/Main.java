@@ -8,10 +8,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- 
- * @author Mimmer 
+ *
+ * @author Mimmer
  */
-
 public class Main extends Application {
 
     @Override
@@ -21,7 +20,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
-        stage.show(); 
+        stage.show();
 
     }
 

@@ -10,6 +10,8 @@ import java.io.PrintWriter;
  *
  * @author Mimmer
  */
+//Filemanager fra 1. iteration (Bliver ikke benyttet i 2. iteration grundet connection med database.)
+
 public class fileManager {
 
     public static void main(String[] args) {

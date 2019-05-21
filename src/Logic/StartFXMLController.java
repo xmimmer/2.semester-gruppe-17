@@ -150,8 +150,9 @@ public class StartFXMLController implements Initializable {
 
     @FXML
     private void deleteButtonHandler(ActionEvent event) throws IOException {
+        String chosenCitizen = citizenListView.getSelectionModel().getSelectedItem();
         try {
-            String chosenCitizen = citizenListView.getSelectionModel().getSelectedItem();
+
             if (chosenCitizen.trim().length() != 0) {
                 try {
                     Class.forName("org.postgresql.Driver");
@@ -161,7 +162,7 @@ public class StartFXMLController implements Initializable {
 
                 try {
                     Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
-                    System.out.println("Connected to second database.!");
+                    System.out.println("Connected!");
 
                     Statement statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery("DELETE FROM citizens WHERE name = '" + chosenCitizen + "'");
@@ -184,7 +185,7 @@ public class StartFXMLController implements Initializable {
                     System.out.println("Connected!");
 
                     Statement statement = connection.createStatement();
-                    ResultSet resultSet = statement.executeQuery("DELETE FROM anotherdatabase WHERE name = '" + chosenCitizen + "'");
+                    ResultSet resultSet = statement.executeQuery("DELETE FROM diary WHERE name = '" + chosenCitizen + "'");
 
                     connection.close();
                     resultSet.close();

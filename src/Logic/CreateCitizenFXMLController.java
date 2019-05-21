@@ -59,6 +59,8 @@ public class CreateCitizenFXMLController implements Initializable {
     @FXML
     private void saveButtonHandler(ActionEvent event) throws IOException {
 
+        String encryptedPassword = new EncryptClass().encryptString(passwordTextField.getText());
+
         if (nameTextField.getText().trim().length() != 0
                 && ageTextField.getText().trim().length() != 0
                 && cprTextField.getText().trim().length() != 0
@@ -74,22 +76,17 @@ public class CreateCitizenFXMLController implements Initializable {
 
             try {
                 Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
-                System.out.println("Connected to citizens!");
+                System.out.println("Connected to first database!");
 
-                String passHWord;
-                passHWord = new EncryptClass().encryptString(passwordTextField.getText());
-                
                 Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("INSERT INTO citizens (name,age,CPR,department,username,password) VALUES ('" 
+                ResultSet resultSet = statement.executeQuery("INSERT INTO citizens (name,age,CPR,department,username,password) VALUES ('"
                         + nameTextField.getText() + "',"
                         + "'" + ageTextField.getText() + "',"
                         + "'" + cprTextField.getText() + "',"
                         + "'" + depTextField.getText() + "',"
                         + "'" + usernameTextField.getText() + "',"
-                        + "'" + passHWord + "')");
-                 
-             
-                
+                        + "'" + encryptedPassword + "')");
+
                 connection.close();
                 resultSet.close();
 
@@ -105,7 +102,7 @@ public class CreateCitizenFXMLController implements Initializable {
 
             try {
                 Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
-                System.out.println("Connected to citizens!");
+                System.out.println("Connected to first database!");
 
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("INSERT INTO relatives (name,CPR,username,password) VALUES ('" + nameTextField.getText() + "','" + cprTextField.getText() + "',"
@@ -127,7 +124,7 @@ public class CreateCitizenFXMLController implements Initializable {
 
             try {
                 Connection connection = DriverManager.getConnection(dm.getSecondDatabaseURL(), dm.getSecondDatabaseUsername(), dm.getSecondDatabasePassword());
-                System.out.println("Connected to diary!");
+                System.out.println("Connected to second database!");
 
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("INSERT INTO diary (cpr,name) VALUES ('" + cprTextField.getText() + "',"

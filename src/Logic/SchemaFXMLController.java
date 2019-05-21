@@ -1,8 +1,7 @@
 package Logic;
 
 import Data.DatabaseManager;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -11,9 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,9 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javax.imageio.ImageIO;
 
 /**
  * FXML Controller class
@@ -57,8 +51,8 @@ public class SchemaFXMLController implements Initializable {
             loggedInAsLabel.setText("Logget ind som admin for: " + StartFXMLController.getCitizen());
         } else if (LoginFXMLController.isCitizen) {
             loggedInAsLabel.setText("Logget ind som: " + ProfileFXMLController.getCitizen());
-            deleteSchemaButton.setVisible(false); 
-            createSchemaButton.setVisible(false); 
+            deleteSchemaButton.setVisible(false);
+            createSchemaButton.setVisible(false);
         }
 
     }
@@ -108,12 +102,10 @@ public class SchemaFXMLController implements Initializable {
             ResultSet resultSet = statement.executeQuery("UPDATE citizens SET img = '" + "No image found." + "' WHERE name = '" + StartFXMLController.getCitizen() + "'");
             resultSet = statement.getResultSet();
             // bytes = resultSet.getBinaryStream("img");
- 
 
             resultSet.close();
         } catch (SQLException ex) {
 
-   
         }
 
     }
