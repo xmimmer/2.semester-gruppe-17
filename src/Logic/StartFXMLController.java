@@ -161,26 +161,6 @@ public class StartFXMLController implements Initializable {
                 }
 
                 try {
-                    Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
-                    System.out.println("Connected!");
-
-                    Statement statement = connection.createStatement();
-                    ResultSet resultSet = statement.executeQuery("DELETE FROM citizens WHERE name = '" + chosenCitizen + "'");
-
-                    connection.close();
-                    resultSet.close();
-
-                } catch (java.sql.SQLException ex) {
-                    System.out.println(ex.getMessage());
-
-                }
-                try {
-                    Class.forName("org.postgresql.Driver");
-                } catch (ClassNotFoundException ex) {
-                    System.out.println("Fail to load the jdbc driver.");
-                }
-
-                try {
                     Connection connection = DriverManager.getConnection(dm.getSecondDatabaseURL(), dm.getSecondDatabaseUsername(), dm.getSecondDatabasePassword());
                     System.out.println("Connected!");
 
@@ -206,6 +186,26 @@ public class StartFXMLController implements Initializable {
 
                     Statement statement = connection.createStatement();
                     ResultSet resultSet = statement.executeQuery("DELETE FROM relatives WHERE name = '" + chosenCitizen + "'");
+
+                    connection.close();
+                    resultSet.close();
+
+                } catch (java.sql.SQLException ex) {
+                    System.out.println(ex.getMessage());
+
+                }
+                try {
+                    Class.forName("org.postgresql.Driver");
+                } catch (ClassNotFoundException ex) {
+                    System.out.println("Fail to load the jdbc driver.");
+                }
+
+                try {
+                    Connection connection = DriverManager.getConnection(dm.getDatabaseURL(), dm.getDatabaseUsername(), dm.getDatabasePassword());
+                    System.out.println("Connected!");
+
+                    Statement statement = connection.createStatement();
+                    ResultSet resultSet = statement.executeQuery("DELETE FROM citizens WHERE name = '" + chosenCitizen + "'");
 
                     connection.close();
                     resultSet.close();
