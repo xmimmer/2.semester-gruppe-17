@@ -73,7 +73,7 @@ public class StartFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT citizen_id,name FROM citizens WHERE name != 'admin'");
+            ResultSet resultSet = statement.executeQuery("SELECT name FROM citizens");
 
             while (resultSet.next()) {
                 list.add(resultSet.getString("name"));
