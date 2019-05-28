@@ -107,7 +107,7 @@ public class LoginFXMLController implements Initializable {
                     //Variable to detect which user is logged in.
                     validateCPR = resultSet.getString("CPR");
                     isCitizen = true;
-                    
+
                     Parent root = FXMLLoader.load(getClass().getResource("/Presentation/ProfileFXML.fxml"));
 
                     Scene scene = new Scene(root);

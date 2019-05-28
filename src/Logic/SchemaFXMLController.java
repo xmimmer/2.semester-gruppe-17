@@ -103,9 +103,9 @@ public class SchemaFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("UPDATE citizens SET img = '" + "No image found." + "' WHERE name = '" + StartFXMLController.getCitizen() + "'");
+            ResultSet resultSet = statement.executeQuery("UPDATE citizens SET image = '" + "No image found." + "' WHERE name = '" + StartFXMLController.getCitizen() + "'");
             resultSet = statement.getResultSet();
-            // bytes = resultSet.getBinaryStream("img");
+      
 
             resultSet.close();
         } catch (SQLException ex) {

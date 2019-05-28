@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Logic;
 
 import Data.DatabaseManager;
@@ -40,23 +35,20 @@ import javax.imageio.ImageIO;
 public class ShowSchemaFXMLController implements Initializable {
 
     @FXML
-    private  ImageView gridPaneImageView;
+    private ImageView gridPaneImageView;
     @FXML
     private Button backButton;
     @FXML
     private Button logoutButton;
-    CreateSchemaFXMLController cs = new CreateSchemaFXMLController();
-    
 
     //Class instances
     DatabaseManager dm = new DatabaseManager();
+    CreateSchemaFXMLController cs = new CreateSchemaFXMLController();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-          gridPaneImageView.setImage(cs.getImage());
-          
+
+        gridPaneImageView.setImage(cs.getImage());
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -71,10 +63,10 @@ public class ShowSchemaFXMLController implements Initializable {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT image FROM citizens WHERE name ='" + StartFXMLController.getCitizen() + "'");
             resultSet = statement.getResultSet();
-            // bytes = resultSet.getBinaryStream("img");
+
             byte[] imgBytes;
 
-            imgBytes = resultSet.getBytes("img");
+            imgBytes = resultSet.getBytes("image");
 
             ByteArrayInputStream bos = new ByteArrayInputStream(imgBytes);
             BufferedImage bImage = ImageIO.read(bos);
@@ -88,13 +80,15 @@ public class ShowSchemaFXMLController implements Initializable {
         }
 
     }
-    public ImageView getImageView(){
-    
-    return gridPaneImageView;
+
+    public ImageView getImageView() {
+
+        return gridPaneImageView;
     }
-    public void SetImageView(){
-    
-    gridPaneImageView.setImage(null);
+
+    public void SetImageView() {
+
+        gridPaneImageView.setImage(null);
     }
 
     @FXML
@@ -129,6 +123,5 @@ public class ShowSchemaFXMLController implements Initializable {
         window.show();
 
     }
-   
 
 }

@@ -17,7 +17,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -471,27 +470,13 @@ public class CreateSchemaFXMLController implements Initializable {
 
     @FXML
     private void saveSchemaButtonHandler(ActionEvent event) throws IOException {
-
-        // ByteArrayOutputStream bos=new ByteArrayOutputStream();
-        //StreamResult result=new StreamResult(bos);
-        //transformer.transform(source, result);
-        //byte []array=bos.toByteArray();
-        //Node n = gridPane.
-        //  gridPane.getChildren().add(gridPaneImageView1.getClip());
-        //double heit = gridPane.getHeight();
-        //double wit = gridPane.getWidth();
-        //BufferedImage bg = new BufferedImage((int)heit,(int)wit,BufferedImage.TYPE_INT_ARGB);
-        //String ba = bg.toString();
-        //byte[] bytearray = ba.getBytes();
         WritableImage image = createSchemaGridPane.snapshot(new SnapshotParameters(), null);
 
         BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
         ByteArrayOutputStream s = new ByteArrayOutputStream();
         ImageIO.write(bImage, "png", s);
         byte[] res = s.toByteArray();
-        System.out.println(res);
-        // System.out.println(" bytes "  + Arrays.toString(bytearray) + "\n");
-        
+
             ByteArrayInputStream bos = new ByteArrayInputStream(res);
             BufferedImage bImage2 = ImageIO.read(bos);
             Image img1 = SwingFXUtils.toFXImage(bImage, null);

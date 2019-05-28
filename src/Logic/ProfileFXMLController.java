@@ -61,12 +61,13 @@ public class ProfileFXMLController implements Initializable {
 
     public static String citizen;
 
+    //Class instances
+    DatabaseManager dm = new DatabaseManager();
+
+    //Getter metode 
     public static String getCitizen() {
         return citizen;
     }
-
-    //Class instances
-    DatabaseManager dm = new DatabaseManager();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -157,7 +158,7 @@ public class ProfileFXMLController implements Initializable {
                 ResultSet resultSet = statement.executeQuery("SELECT name,age,CPR FROM citizens WHERE CPR ='" + LoginFXMLController.getValidateCPR() + "'");
 
                 while (resultSet.next()) {
-                    
+
                     nameLabel.setText(resultSet.getString("name"));
                     ageTextField.setText(resultSet.getString("age"));
                     cprTextField.setText(resultSet.getString("CPR"));
