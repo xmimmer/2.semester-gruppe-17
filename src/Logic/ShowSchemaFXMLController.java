@@ -40,17 +40,23 @@ import javax.imageio.ImageIO;
 public class ShowSchemaFXMLController implements Initializable {
 
     @FXML
-    private ImageView gridPaneImageView;
+    private  ImageView gridPaneImageView;
     @FXML
     private Button backButton;
     @FXML
     private Button logoutButton;
+    CreateSchemaFXMLController cs = new CreateSchemaFXMLController();
+    
 
     //Class instances
     DatabaseManager dm = new DatabaseManager();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
+          gridPaneImageView.setImage(cs.getImage());
+          
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -73,7 +79,6 @@ public class ShowSchemaFXMLController implements Initializable {
             ByteArrayInputStream bos = new ByteArrayInputStream(imgBytes);
             BufferedImage bImage = ImageIO.read(bos);
             Image img1 = SwingFXUtils.toFXImage(bImage, null);
-            gridPaneImageView.setImage(img1);
 
             resultSet.close();
         } catch (SQLException ex) {
@@ -82,6 +87,14 @@ public class ShowSchemaFXMLController implements Initializable {
             Logger.getLogger(ShowSchemaFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+    public ImageView getImageView(){
+    
+    return gridPaneImageView;
+    }
+    public void SetImageView(){
+    
+    gridPaneImageView.setImage(null);
     }
 
     @FXML
@@ -116,5 +129,6 @@ public class ShowSchemaFXMLController implements Initializable {
         window.show();
 
     }
+   
 
 }

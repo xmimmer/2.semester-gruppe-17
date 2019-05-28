@@ -7,6 +7,7 @@ package Logic;
 
 import Data.DatabaseManager;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -149,6 +150,7 @@ public class CreateSchemaFXMLController implements Initializable {
     private Button logoutButton;
     @FXML
     private Pane createSchemaGridPane;
+    public static Image img2;
 
     //Class instances
     DatabaseManager dm = new DatabaseManager();
@@ -458,6 +460,14 @@ public class CreateSchemaFXMLController implements Initializable {
 
         }
     }
+    public Image getImage(){
+    
+    return img2;
+    }
+    public void SetImage(){
+    
+    img2 = null;
+    }
 
     @FXML
     private void saveSchemaButtonHandler(ActionEvent event) throws IOException {
@@ -481,6 +491,12 @@ public class CreateSchemaFXMLController implements Initializable {
         byte[] res = s.toByteArray();
         System.out.println(res);
         // System.out.println(" bytes "  + Arrays.toString(bytearray) + "\n");
+        
+            ByteArrayInputStream bos = new ByteArrayInputStream(res);
+            BufferedImage bImage2 = ImageIO.read(bos);
+            Image img1 = SwingFXUtils.toFXImage(bImage, null);
+            img2 = img1;
+ 
 
         try {
             Class.forName("org.postgresql.Driver");

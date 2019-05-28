@@ -43,6 +43,8 @@ public class SchemaFXMLController implements Initializable {
 
     //Class instances
     DatabaseManager dm = new DatabaseManager();
+    ShowSchemaFXMLController sc = new ShowSchemaFXMLController();
+    CreateSchemaFXMLController css = new CreateSchemaFXMLController();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -87,7 +89,9 @@ public class SchemaFXMLController implements Initializable {
 
     @FXML
     private void deleteSchemaButtonHandler(ActionEvent event) {
-
+    
+    css.SetImage();
+        
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException ex) {
