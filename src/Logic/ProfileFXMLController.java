@@ -258,7 +258,7 @@ public class ProfileFXMLController implements Initializable {
             System.out.println("Connected!");
 
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("UPDATE anotherdatabase SET diary = '" + "" + "' WHERE name = '" + StartFXMLController.getCitizen() + "'");
+            ResultSet resultSet = statement.executeQuery("UPDATE diary SET diary = '" + "" + "' WHERE name = '" + StartFXMLController.getCitizen() + "'");
 
             connection.close();
             resultSet.close();
